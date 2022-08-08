@@ -1,6 +1,4 @@
 const Catalog = () => {
-    return (
-        <p>Catalog</p>
-    )
-}
+  return <p>Catalog</p>;
+};
 export default Catalog;
