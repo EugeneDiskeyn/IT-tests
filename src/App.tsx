@@ -6,6 +6,7 @@ import SignUp from "./modules/SignIn/SignIn";
 import SignIn from "./modules/SignUp/SignUp";
 import NavBar from "./modules/NavBar/NavBar";
 import Catalog from "./modules/Catalog/Catalog";
+import NotFound from "./modules/NotFound/NotFound";
 
 function App() {
   return (
