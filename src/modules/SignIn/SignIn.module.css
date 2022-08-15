@@ -28,42 +28,8 @@
     height: 1px;
     width: 100%;
 }
-.authorization input {
-    height: 41px;
-    background-color: #E6E6E6;
-    border: none;
-    border-radius: 30px;
-    padding-left: 30px;
-    font-size: 16px;
-}
-.authorization input:focus {
-    outline: 0;
-    outline-offset: 0;
-}
 .link1 {
     color: #44BDBC;
     padding-bottom: 19px;
     font-size: 16px;
-}
-.link2 {
-    text-decoration: none;
-    background-color: #44BDBC;
-    padding: 11px 34px;
-    border-radius: 30px;
-    color: #FFFFFF;
-    font-size: 16px;
-}
-.input1 {
-    width: 419px;
-    margin-bottom: 37px;
-}
-.input2 {
-    width: 381px;
-    margin-bottom: 20px;
-    padding-right: 38px;
-    background-image: url("../../images/-remove-red-eye_90161.png");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 415px;
-    background-size: 24px;
 }

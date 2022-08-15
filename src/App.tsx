@@ -18,6 +18,7 @@ function App() {
                 <Route path="/main" element={<Catalog />} />
                 <Route path="/" element={<SignUp />} />
                 <Route path="/SignIn" element={<SignIn />} />
+                <Route path="*" element={<NotFound />}/>
             </Routes>
         </div>
   );
