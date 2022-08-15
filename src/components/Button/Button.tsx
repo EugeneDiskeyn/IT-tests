@@ -1,10 +1,13 @@
 import React from "react";
+import {inspect} from "util";
+import styles from "./Button.module.css"
 
 interface ButtonProps {
-  color: string;
+  children: React.ReactNode;
+  isDisabled: boolean;
 }
-const Button1 = (props: ButtonProps) => {
-  return <button></button>;
+const Button = ({children, isDisabled}: ButtonProps) => {
+  return <button className={styles.button} disabled={isDisabled}>{children}</button>;
 };
 
-export default Button1;
+export default Button;
