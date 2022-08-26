@@ -1,0 +1,27 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00426B;
+    height: 70px;
+}
+.main p {
+    padding: 0 11px 0 27px;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.main a {
+    text-decoration: none;
+}
+.main a:focus {
+    text-decoration: none;
+}
+.box {
+    flex-grow: 0.9;
+}
+.inactive {
+    color: #FFFFFF;
+}
+.active {
+    color: #44BDBC;
+}

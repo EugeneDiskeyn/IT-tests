@@ -1,4 +1,12 @@
+import React from "react";
+import NavBar from "../NavBar/NavBar";
+
 const Catalog = () => {
-  return <p>Catalog</p>;
+  return (
+      <div>
+        <NavBar />
+        <p>Catalog</p>
+      </div>
+  );
 };
 export default Catalog;
