@@ -1,0 +1,12 @@
+.ul {
+    display: flex;
+    max-width: 875px;
+    padding: 0;
+    margin: 75px 0 0 282px;
+    border-bottom: 1px #FFFFFF solid;
+}
+.ul li {
+    list-style-type: none;
+    padding-right: 40px;
+    color: #FFFFFF;
+}

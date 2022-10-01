@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 875px;
+    margin-left: 282px;
+}
+.container {
+    list-style-type: none;
+    background-color: #FFFFFF;
+    width: 249px;
+    height: 184px;
+    margin-top: 41px;
+    border-radius: 10px;
+}
