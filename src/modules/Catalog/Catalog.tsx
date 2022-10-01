@@ -1,12 +1,23 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
+import Categories from "../Categories/Categories";
+import styles from "./Catalog.module.css";
+import categories from "../../utils/Categories";
 
 const Catalog = () => {
   return (
-      <div>
+      <div className={styles.col}>
         <NavBar />
-        <p>Catalog</p>
+        <div>
+            <ul className={styles.ul}>
+                <li>Новые категории</li>
+                <li>Популярные категории</li>
+                <li>Все категории</li>
+            </ul>
+            <Categories categories={categories} />
+        </div>
       </div>
   );
 };
+
 export default Catalog;
