@@ -10,6 +10,7 @@ const Categories = ({ categories }: { categories: any }) => {
           <div key={category.id} className={styles.container}>
             <li>{category.title}</li>
             <img src={category.image} alt={category.title} />
+            <div></div>
           </div>
         )
       )}
