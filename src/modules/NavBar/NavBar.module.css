@@ -4,13 +4,11 @@
     align-items: center;
     height: 70px;
 }
-.main p {
+.main a {
+    text-decoration: none;
     padding: 0 11px 0 27px;
     color: #FFFFFF;
     font-size: 16px;
-}
-.main a {
-    text-decoration: none;
 }
 .main a:focus {
     text-decoration: none;
@@ -22,5 +20,5 @@
     color: #FFFFFF;
 }
 .active {
-    color: #44BDBC;
+    color: orange;
 }
