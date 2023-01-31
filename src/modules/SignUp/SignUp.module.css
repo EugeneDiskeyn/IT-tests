@@ -1,35 +1,32 @@
 .color {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: fixed;
     width: 100%;
     height: 100%;
 }
-.signingIn {
+.signingUp {
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 39%;
-    margin: 0 30.5% 0 30.5%;
+    min-width: 600px;
     background-color: #FFFFFF;
     padding: 40px 0 30px 0;
     border-radius: 30px;
 }
 .Line {
     background-color: gray;
-    margin: 0 0 36px 0;
+    margin-bottom: 36px;
     height: 1px;
     width: 100%;
 }
-.signingIn h1 {
-    margin: 0 0 49px 0;
+.signingUp h1 {
+    margin-bottom: 49px;
     font-size: 32px;
 }
 .back {
-    margin-bottom: 20px;
-}
-.onlyMargin {
     margin-bottom: 20px;
 }

@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Categories from "../Categories/Categories";
 import styles from "./Catalog.module.css";
-import categories from "../../utils/Categories";
 
 const Catalog = () => {
+  const [category, setCategory] = useState("Something");
+  function getCategory(event: any) {
+    setCategory(event.target.id);
+  }
   return (
-      <div className={styles.col}>
-        <NavBar />
-        <div>
-            <ul className={styles.ul}>
-                <li>Новые категории</li>
-                <li>Популярные категории</li>
-                <li>Все категории</li>
-            </ul>
-            <Categories categories={categories} />
-        </div>
+    <>
+      <NavBar />
+      <div className={styles.div}>
+        <ul onClick={getCategory} className={styles.ul}>
+          <li id={"new"}>Новые категории</li>
+          <li id={"popular"}>Популярные категории</li>
+          <li id={"all"}>Все категории</li>
+        </ul>
+        <Categories category={category} />
       </div>
+    </>
   );
 };
 

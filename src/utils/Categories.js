@@ -1,9 +1,9 @@
-import img_react from "../images/logos/react.png";
-import img_javascript from "../images/logos/javaScript.png";
-import img_HTML from "../images/logos/HTML.png";
-import img_css from "../images/logos/css.png";
-import img_git from "../images/logos/git.png";
-import img_typeScript from "../images/logos/typescript.png";
+import img_react from "../images/logos/react.svg";
+import img_javascript from "../images/logos/javaScript.svg";
+import img_HTML from "../images/logos/HTML.svg";
+import img_css from "../images/logos/css.svg";
+import img_git from "../images/logos/git.svg";
+import img_typeScript from "../images/logos/typescript.svg";
 
 const Categories = [
   {

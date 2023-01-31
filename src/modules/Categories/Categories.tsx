@@ -1,19 +1,9 @@
 import React from "react";
 import styles from "./Categories.module.css";
 
-const Categories = ({ categories }: { categories: any }) => {
-  return (
-    <div className={styles.main}>
-      {categories.map(
-        (category: { title: string; image: string; id: number }) => (
-          <div key={category.id} className={styles.container}>
-            <li>{category.title}</li>
-            <img src={category.image} alt={category.title} />
-          </div>
-        )
-      )}
-    </div>
-  );
+const Categories = ({ category }: { category: string }) => {
+  console.log(category);
+  return <div className={styles.main}></div>;
 };
 
 export default Categories;
