@@ -1,13 +1,13 @@
 .ul {
-    display: flex;
     min-width: 875px;
     padding: 0;
     margin-top: 75px;
     border-bottom: 1px #FFFFFF solid;
 }
 .ul li {
+    display: inline-block;
     list-style-type: none;
-    padding-right: 40px;
+    margin-right: 40px;
     color: #FFFFFF;
 }
 .div {
