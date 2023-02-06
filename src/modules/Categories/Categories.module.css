@@ -5,6 +5,9 @@
     width: 875px;
 }
 .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
     background-color: #FFFFFF;
     width: 249px;
