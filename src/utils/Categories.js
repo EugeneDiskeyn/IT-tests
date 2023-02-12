@@ -10,37 +10,37 @@ const Categories = [
     id: 1,
     title: "react",
     image: img_react,
-    type: "all",
+    type: "",
   },
   {
     id: 2,
     title: "javaScript",
     image: img_javascript,
-    type: "all",
+    type: "popular",
   },
   {
     id: 3,
     title: "html",
     image: img_HTML,
-    type: "all",
+    type: "popular",
   },
   {
     id: 4,
     title: "css",
     image: img_css,
-    type: "all",
+    type: "popular",
   },
   {
     id: 5,
     title: "git",
     image: img_git,
-    type: "all",
+    type: "new",
   },
   {
     id: 6,
     title: "typeScript",
     image: img_typeScript,
-    type: "all",
+    type: "",
   },
 ];
 
