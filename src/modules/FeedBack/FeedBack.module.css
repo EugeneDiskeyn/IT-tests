@@ -1,0 +1,29 @@
+select {
+    height: 41px;
+    background-color: #E6E6E6;
+    border: none;
+    border-radius: 30px;
+    padding: 0 30px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 37px;
+}
+.feedback {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    background-color: #FFFFFF;
+    padding: 40px 75px 30px 75px;
+    border-radius: 30px;
+}
+.feedarea {
+    resize: none;
+    min-height: 82px;
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: #E6E6E6;
+}

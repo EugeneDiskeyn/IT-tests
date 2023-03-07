@@ -12,9 +12,9 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    min-width: 600px;
+    min-width: 390px;
     background-color: #FFFFFF;
-    padding: 40px 0 30px 0;
+    padding: 40px 105px 30px 105px;
     border-radius: 30px;
 }
 .authorization h1 {
@@ -26,6 +26,25 @@
     margin-bottom: 36px;
     height: 1px;
     width: 100%;
+}
+.authorization div::before {
+    content: "";
+    border-top: 1px solid gray;
+    width: 105px;
+    heigth: 1px;
+    display: block;
+    position: relative;
+    right: 105px;
+}
+.authorization div::after {
+    content: "";
+    border-top: 1px solid gray;
+    width: 105px;
+    heigth: 1px;
+    display: block;
+    position: relative;
+    right: -390px;
+    top: -1px;
 }
 .link {
     padding-bottom: 21px;

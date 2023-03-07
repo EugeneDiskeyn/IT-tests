@@ -8,10 +8,28 @@
     display: inline-block;
     list-style-type: none;
     margin-right: 40px;
-    color: #FFFFFF;
+    cursor: pointer;
+}
+.inactive:hover {
+    color: #f1bd5f;
 }
 .div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+.active {
+    color: orange;
+}
+.active::before {
+    display: block;
+    position: relative;
+    top: 23px;
+    width: 99%;
+    content: "";
+    border: 2px solid orange;
+    border-radius: 2px;
+}
+.inactive {
+    color: #FFFFFF;
 }
