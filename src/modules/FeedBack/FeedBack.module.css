@@ -3,10 +3,10 @@ select {
     background-color: #E6E6E6;
     border: none;
     border-radius: 30px;
-    padding: 0 30px;
-    font-size: 16px;
     width: 100%;
+    padding: 0 30px;
     margin-bottom: 37px;
+    font-size: 16px;
 }
 .feedback {
     display: flex;
@@ -14,10 +14,13 @@ select {
     text-align: center;
     justify-content: center;
     align-items: center;
-    max-width: 500px;
+    width: 500px;
     background-color: #FFFFFF;
-    padding: 40px 75px 30px 75px;
+    padding: 19px 75px 30px 75px;
     border-radius: 30px;
+}
+.feedback h1 {
+    padding-bottom: 43px;
 }
 .feedarea {
     resize: none;
@@ -26,4 +29,9 @@ select {
     border-radius: 30px;
     padding: 10px 30px;
     background-color: #E6E6E6;
+}
+.form_img {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 138px 0 156px;
 }
