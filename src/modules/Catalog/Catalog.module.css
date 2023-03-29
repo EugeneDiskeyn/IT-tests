@@ -1,3 +1,9 @@
+.div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .ul {
     min-width: 875px;
     padding: 0;
@@ -6,18 +12,18 @@
 }
 .ul li {
     display: inline-block;
-    list-style-type: none;
     margin-right: 40px;
+    list-style-type: none;
     cursor: pointer;
+}
+
+.inactive {
+    color: #FFFFFF;
 }
 .inactive:hover {
     color: #f1bd5f;
 }
-.div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 .active {
     color: orange;
 }
@@ -26,10 +32,7 @@
     position: relative;
     top: 23px;
     width: 99%;
-    content: "";
     border: 2px solid orange;
     border-radius: 2px;
-}
-.inactive {
-    color: #FFFFFF;
+    content: "";
 }

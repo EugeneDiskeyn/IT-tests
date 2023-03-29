@@ -4,16 +4,17 @@
     flex-wrap: wrap;
     width: 875px;
 }
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    list-style-type: none;
-    background-color: #FFFFFF;
     width: 249px;
     height: 184px;
     margin-top: 41px;
     border-radius: 10px;
+    list-style-type: none;
+    background-color: #FFFFFF;
 }
 .container:hover {
     box-shadow: 7px 7px 5px orange;

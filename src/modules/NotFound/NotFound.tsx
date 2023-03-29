@@ -10,12 +10,14 @@ const NotFound = () => {
   };
   return (
     <>
-      <img
-        className={styles.image}
-        src={notFound}
-        alt={"Not Found"}
-        onClick={handler}
-      />
+      <div className={styles.main}>
+        <img
+          className={styles.image}
+          src={notFound}
+          alt={"Not Found"}
+          onClick={handler}
+        />
+      </div>
     </>
   );
 };

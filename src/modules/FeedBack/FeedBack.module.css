@@ -1,13 +1,10 @@
-select {
-    height: 41px;
-    background-color: #E6E6E6;
-    border: none;
-    border-radius: 30px;
-    width: 100%;
-    padding: 0 30px;
-    margin-bottom: 37px;
-    font-size: 16px;
+.form_img {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
 }
+
 .feedback {
     display: flex;
     flex-direction: column;
@@ -15,23 +12,30 @@ select {
     justify-content: center;
     align-items: center;
     width: 500px;
-    background-color: #FFFFFF;
     padding: 19px 75px 30px 75px;
     border-radius: 30px;
+    background-color: #FFFFFF;
 }
 .feedback h1 {
     padding-bottom: 43px;
 }
+
+.sel {
+    height: 41px;
+    width: 100%;
+    padding: 0 30px;
+    margin-bottom: 37px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background-color: #E6E6E6;
+}
+
 .feedarea {
     resize: none;
     min-height: 82px;
     width: 100%;
-    border-radius: 30px;
     padding: 10px 30px;
+    border-radius: 30px;
     background-color: #E6E6E6;
-}
-.form_img {
-    display: flex;
-    justify-content: space-between;
-    margin: 70px 138px 0 156px;
 }

@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
 }
+
 .authorization {
     display: flex;
     flex-direction: column;
@@ -13,39 +14,34 @@
     justify-content: center;
     align-items: center;
     min-width: 390px;
-    background-color: #FFFFFF;
     padding: 40px 105px 30px 105px;
     border-radius: 30px;
+    background-color: #FFFFFF;
 }
 .authorization h1 {
-    margin-bottom: 49px;
     font-size: 32px;
+    margin-bottom: 49px;
 }
 .authorization div {
-    background-color: gray;
-    margin-bottom: 36px;
     height: 1px;
     width: 100%;
+    margin-bottom: 36px;
+    background-color: gray;
 }
-.authorization div::before {
-    content: "";
-    border-top: 1px solid gray;
-    width: 105px;
-    heigth: 1px;
+.authorization div::before, .authorization div::after {
     display: block;
     position: relative;
     right: 105px;
+    width: 105px;
+    height: 1px;
+    border-top: 1px solid gray;
+    content: "";
 }
 .authorization div::after {
-    content: "";
-    border-top: 1px solid gray;
-    width: 105px;
-    heigth: 1px;
-    display: block;
-    position: relative;
     right: -390px;
     top: -1px;
 }
+
 .link {
     padding-bottom: 21px;
 }

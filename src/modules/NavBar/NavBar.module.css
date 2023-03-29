@@ -5,13 +5,14 @@
     height: 70px;
 }
 .main a {
-    text-decoration: none;
     margin: 0 11px 0 27px;
     font-size: 16px;
+    text-decoration: none;
 }
 .main a:focus {
     text-decoration: none;
 }
+
 .box {
     flex-grow: 0.9;
 }
