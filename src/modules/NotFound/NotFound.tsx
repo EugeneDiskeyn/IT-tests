@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 import notFound from "../../images/logos/404.svg";
 import styles from "./NotFound.module.css";
 
@@ -9,16 +10,14 @@ const NotFound = () => {
     navigate("/main");
   };
   return (
-    <>
-      <div className={styles.main}>
-        <img
-          className={styles.image}
-          src={notFound}
-          alt={"Not Found"}
-          onClick={handler}
-        />
-      </div>
-    </>
+    <div className={styles.main}>
+      <img
+        className={styles.image}
+        src={notFound}
+        alt={"Not Found"}
+        onClick={handler}
+      />
+    </div>
   );
 };
 

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+
 import NavBar from "../NavBar/NavBar";
 import Categories from "../Categories/Categories";
 import styles from "./Catalog.module.css";
 
 const Catalog = () => {
   const [category, setCategory] = useState("all");
-  function getCategory(event: any) {
+
+  function handleCategory(event: any) {
+    const categoryNodes = event.target.parentNode.childNodes;
     if (event.target.localName === "li") {
-      console.dir(event.target);
-      for (let i = 0; i < 3; i++) {
-        event.target.parentNode.childNodes[i].className = styles.inactive;
+      for (let i = 0; i < categoryNodes.size(); i++) {
+        categoryNodes[i].className = styles.inactive;
       }
       event.target.className = styles.active;
       setCategory(event.target.id);
@@ -19,7 +21,7 @@ const Catalog = () => {
     <>
       <NavBar />
       <div className={styles.div}>
-        <ul onClick={getCategory} className={styles.ul}>
+        <ul onClick={handleCategory} className={styles.ul}>
           <li id={"all"} className={styles.active}>
             Все категории
           </li>

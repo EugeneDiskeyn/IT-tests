@@ -1,4 +1,4 @@
-.color {
+.container {
     position: fixed;
     display: flex;
     align-items: center;
@@ -40,6 +40,10 @@
 .Line::after {
     right: -390px;
     top: -1px;
+}
+
+.color Input {
+    margin-bottom: 35px;
 }
 
 .back {

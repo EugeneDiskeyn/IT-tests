@@ -1,4 +1,4 @@
-.onlyColor {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,6 +40,10 @@
 .authorization div::after {
     right: -390px;
     top: -1px;
+}
+
+.onlyColor Input {
+    margin-bottom: 35px;
 }
 
 .link {
