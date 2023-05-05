@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import styles from "./SignIn.module.css";
 import Button from "../../components/Button/Button";
@@ -9,14 +9,14 @@ import Users from "../../utils/Users";
 const SignIn = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [gmail, setGmail] = useState("");
 
   function handleEnter(event: any) {
-    Users.map((user) => {
-      if (user.gmail === email && user.password === password) {
-        navigate("/main");
-      }
-    });
+    const finder = Users.find((element) => element.gmail === gmail && element.password === password);
+
+    if (finder !== undefined) {
+      navigate("/main");
+    }
   }
 
   const handlePasswordChange = (event: any) => {
@@ -24,7 +24,7 @@ const SignIn = () => {
   };
 
   const handleEmailChange = (event: any) => {
-    setEmail(event.target.value);
+    setGmail(event.target.value);
   };
 
   return (
@@ -36,7 +36,7 @@ const SignIn = () => {
           placeholder={"Электронная почта"}
           type={"email"}
           isRequired={true}
-          value={email}
+          value={gmail}
           onChange={handleEmailChange}
         />
         <Input

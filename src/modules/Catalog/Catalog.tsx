@@ -10,7 +10,7 @@ const Catalog = () => {
   function handleCategory(event: any) {
     const categoryNodes = event.target.parentNode.childNodes;
     if (event.target.localName === "li") {
-      for (let i = 0; i < categoryNodes.size(); i++) {
+      for (let i = 0; i < categoryNodes.length; i++) {
         categoryNodes[i].className = styles.inactive;
       }
       event.target.className = styles.active;
