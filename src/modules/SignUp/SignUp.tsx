@@ -1,27 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useReducer } from "react";
 
 import styles from "./SignUp.module.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import adder from "../../components/localStorage/adder";
 import Users from "../../utils/Users";
 
 const SignUp = () => {
-  const testUsers = [
-    {
-      id: 1,
-      login: "firstUser",
-      gmail: "qwerty@gmail.com",
-      password: "1235",
-    },
-    {
-      id: 2,
-      login: "secondUser",
-      gmail: "mymail@gmail.com",
-      password: "2006",
-    },
-  ];
   const initialState = { gmail: "", login: "", password: "", repeat: "" };
+  const navigate = useNavigate();
 
   const reducer = (state: any, action: any) => {
     switch (action.type) {
@@ -58,6 +46,7 @@ const SignUp = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleGmailChange = (event: any) => {
+    console.dir(event);
     dispatch({
       type: "gmail",
       gmail: event.target.value,
@@ -82,26 +71,17 @@ const SignUp = () => {
     });
   };
   function userCheck() {
-    const finder = Users.find(
-      (element) =>
-        element.gmail === state.gmail || element.login === state.login
-    );
-    if (finder === undefined && state.repeat === state.password) {
-      testUsers.push({
-        id: testUsers.length + 1,
-        gmail: state.gmail,
-        login: state.login,
-        password: state.password,
-      });
-      console.log(testUsers);
-    } else {
-      console.log("Such user already exists");
-    }
+    let testUsers = {
+      gmail: state.gmail,
+      login: state.login,
+      password: state.password,
+    };
+    adder(testUsers);
+    navigate("/");
   }
-
   return (
     <div className={styles.container}>
-      <form className={styles.signingUp}>
+      <form className={styles.signingUp} onSubmit={userCheck}>
         <h1> РЕГИСТРАЦИЯ </h1>
         <div className={styles.Line} />
         <Input
@@ -133,9 +113,7 @@ const SignUp = () => {
         <Link className={styles.back} to={"/"}>
           У Вас уже есть аккаунт? Авторизация
         </Link>
-        <Button type={"submit"} onClick={userCheck}>
-          РЕГИСТРАЦИЯ
-        </Button>
+        <Button type={"submit"}>РЕГИСТРАЦИЯ</Button>
       </form>
     </div>
   );
