@@ -8,6 +8,7 @@ import NotFound from "./modules/NotFound/NotFound";
 import Statistics from "./modules/Statistics/Statistics";
 import FeedBack from "./modules/FeedBack/FeedBack";
 import Profile from "./modules/Profile/Profile";
+import Test from "./modules/Test/Test";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/" element={<SignIn />} />
       <Route path="/signUp" element={<SignUp />} />
+      <Route path="/test" element={<Test />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

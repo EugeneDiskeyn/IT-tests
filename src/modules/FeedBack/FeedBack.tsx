@@ -9,8 +9,8 @@ import assistant from "../../images/logos/virtual-assistant.svg";
 
 const FeedBack = () => {
   const users = getter();
-  const [login, setLogin] = useState("");
-  const [gmail, setGmail] = useState("");
+  const [login, setLogin] = useState();
+  const [gmail, setGmail] = useState();
 
   function loginSetter(event: any) {
     setLogin(event.target.value);
