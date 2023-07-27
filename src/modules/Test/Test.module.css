@@ -1,0 +1,12 @@
+main {
+    display: flex;
+}
+.testBox {
+    border: blue 1px solid;
+    color: white;
+}
+img {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+}
