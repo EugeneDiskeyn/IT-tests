@@ -21,18 +21,20 @@ const Catalog = () => {
     <>
       <NavBar />
       <div className={styles.div}>
-        <ul onClick={handleCategory} className={styles.ul}>
-          <li id={"all"} className={styles.active}>
-            Все категории
-          </li>
-          <li id={"new"} className={styles.inactive}>
-            Новые категории
-          </li>
-          <li id={"popular"} className={styles.inactive}>
-            Популярные категории
-          </li>
-        </ul>
-        <Categories category={category} />
+        <div>
+          <ul onClick={handleCategory} className={styles.ul}>
+            <li id={"all"} className={styles.active}>
+              Все категории
+            </li>
+            <li id={"new"} className={styles.inactive}>
+              Новые категории
+            </li>
+            <li id={"popular"} className={styles.inactive}>
+              Популярные категории
+            </li>
+          </ul>
+          <Categories category={category} />
+        </div>
       </div>
     </>
   );

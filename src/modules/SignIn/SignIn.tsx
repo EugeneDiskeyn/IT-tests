@@ -11,13 +11,15 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [gmail, setGmail] = useState("");
 
-  function handleEnter(event: any) {
-    const finder = Users.find((element) => element.gmail === gmail && element.password === password);
+  const handleEnter = () => {
+    const finder = Users.find(
+      (element) => element.gmail === gmail && element.password === password
+    );
 
     if (finder !== undefined) {
-      navigate("/main");
+      navigate("/catalog");
     }
-  }
+  };
 
   const handlePasswordChange = (event: any) => {
     setPassword(event.target.value);
@@ -46,7 +48,7 @@ const SignIn = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-        <Link className={styles.link} to="/SignUp">
+        <Link className={styles.link} to="/reg">
           У вас нет аккаунта? Регистрация
         </Link>
         <Button type={"submit"} onClick={handleEnter}>

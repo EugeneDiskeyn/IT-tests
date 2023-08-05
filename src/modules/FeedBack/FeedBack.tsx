@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import getter from "../../components/localStorage/getter";
+import getter from "../../utils/localStorage/getter";
 import styles from "./FeedBack.module.css";
 import assistant from "../../images/logos/virtual-assistant.svg";
 
@@ -12,20 +12,20 @@ const FeedBack = () => {
   const [login, setLogin] = useState();
   const [gmail, setGmail] = useState();
 
-  function loginSetter(event: any) {
+  const loginSetter = (event: any) => {
     setLogin(event.target.value);
-  }
-  function gmailSetter(event: any) {
+  };
+  const gmailSetter = (event: any) => {
     setGmail(event.target.value);
-  }
+  };
 
-  function checker(event: any) {
+  const checker = (event: any) => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].gmail === gmail && users[i].login === login) {
         event.target.form.submit();
       }
     }
-  }
+  };
   return (
     <>
       <NavBar />

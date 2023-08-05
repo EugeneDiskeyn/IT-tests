@@ -7,7 +7,7 @@ import styles from "./NotFound.module.css";
 const NotFound = () => {
   const navigate = useNavigate();
   const handler = () => {
-    navigate("/main");
+    navigate("/catalog");
   };
   return (
     <div className={styles.main}>

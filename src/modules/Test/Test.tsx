@@ -15,7 +15,7 @@ const Test = () => {
   const location = useLocation();
   const { from } = location.state;
 
-  const a = () => {
+  const categoryChoose = () => {
     if (from.data.title == "react") {
       return react;
     } else if (from.data.title == "javaScript") {
@@ -30,10 +30,10 @@ const Test = () => {
       return typeScript;
     }
   };
-  const chosenCategories = a();
+  const chosenCategories = categoryChoose();
   return (
     <div>
-      <img src={arrow} />
+      <img src={arrow} className={styles.back} />
       <NavBar />
       <main>
         {chosenCategories.map((category) => {

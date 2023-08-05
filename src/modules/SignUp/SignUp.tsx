@@ -4,8 +4,7 @@ import React, { useReducer } from "react";
 import styles from "./SignUp.module.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import adder from "../../components/localStorage/adder";
-import Users from "../../utils/Users";
+import adder from "../../utils/localStorage/adder";
 
 const SignUp = () => {
   const initialState = { gmail: "", login: "", password: "", repeat: "" };
@@ -46,7 +45,6 @@ const SignUp = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleGmailChange = (event: any) => {
-    console.dir(event);
     dispatch({
       type: "gmail",
       gmail: event.target.value,
@@ -70,15 +68,15 @@ const SignUp = () => {
       repeat: event.target.value,
     });
   };
-  function userCheck() {
+  const userCheck = () => {
     let testUsers = {
       gmail: state.gmail,
       login: state.login,
       password: state.password,
     };
     adder(testUsers);
-    navigate("/");
-  }
+    navigate("/authorisation");
+  };
   return (
     <div className={styles.container}>
       <form className={styles.signingUp} onSubmit={userCheck}>
@@ -110,7 +108,7 @@ const SignUp = () => {
           isRequired={true}
           onChange={handleRepeatChange}
         />
-        <Link className={styles.back} to={"/"}>
+        <Link className={styles.back} to={"/authorisation"}>
           У Вас уже есть аккаунт? Авторизация
         </Link>
         <Button type={"submit"}>РЕГИСТРАЦИЯ</Button>

@@ -11,7 +11,6 @@ const Categories = ({ category }: { category: string }) => {
   let data = { title: "" };
   let changer = function (event: any) {
     data.title = event.target.id || event.target.alt;
-    console.log(event.target);
   };
   return (
     <div className={styles.main}>
