@@ -1,10 +1,6 @@
 main {
     display: flex;
 }
-.testBox {
-    border: blue 1px solid;
-    color: white;
-}
 .back {
     position: fixed;
     top: 20px;

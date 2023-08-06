@@ -9,6 +9,7 @@ import css from "../../utils/Css";
 import git from "../../utils/GIT";
 import typeScript from "../../utils/TypeScript";
 import NavBar from "../NavBar/NavBar";
+import TestCard from "../../components/TestCard/TestCard";
 import arrow from "./arrow.png";
 
 const Test = () => {
@@ -38,11 +39,11 @@ const Test = () => {
       <main>
         {chosenCategories.map((category) => {
           return (
-            <div className={styles.testBox}>
-              <div>{category.name}</div>
-              <div>{category.difficulty}</div>
-              <div>{category.amount}</div>
-            </div>
+            <TestCard
+              name={category.name}
+              difficulty={category.difficulty}
+              amount={category.amount}
+            />
           );
         })}
       </main>
