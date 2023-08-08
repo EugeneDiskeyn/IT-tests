@@ -16,31 +16,13 @@
     min-width: 390px;
     padding: 40px 105px 30px 105px;
     border-radius: 30px;
+    box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
     background-color: #FFFFFF;
 }
 .authorization h1 {
     font-size: 32px;
     margin-bottom: 49px;
 }
-.authorization div {
-    height: 1px;
-    width: 100%;
-    margin-bottom: 36px;
-    background-color: gray;
-}
-.authorization div::before, .authorization div::after {
-    display: block;
-    position: relative;
-    right: 105px;
-    width: 105px;
-    border-top: 1px solid gray;
-    content: "";
-}
-.authorization div::after {
-    right: -390px;
-    top: -1px;
-}
-
 .container Input {
     margin-bottom: 35px;
 }

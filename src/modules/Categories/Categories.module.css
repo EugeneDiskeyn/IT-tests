@@ -13,10 +13,11 @@
     height: 184px;
     margin-top: 41px;
     border-radius: 10px;
+    box-shadow: 4px 4px 14px 0 rgba(89, 79, 119, 0.25);
     list-style-type: none;
     background-color: #FFFFFF;
 }
 .container:hover {
-    box-shadow: 7px 7px 5px orange;
+    box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.5);
     cursor: pointer;
 }

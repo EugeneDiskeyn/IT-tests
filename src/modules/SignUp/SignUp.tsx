@@ -81,7 +81,6 @@ const SignUp = () => {
     <div className={styles.container}>
       <form className={styles.signingUp} onSubmit={userCheck}>
         <h1> РЕГИСТРАЦИЯ </h1>
-        <div className={styles.Line} />
         <Input
           placeholder={"Электронная почта"}
           type={"email"}

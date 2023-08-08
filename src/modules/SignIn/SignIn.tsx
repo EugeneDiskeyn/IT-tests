@@ -33,7 +33,6 @@ const SignIn = () => {
     <div className={styles.container}>
       <form className={styles.authorization} autoComplete={"on"}>
         <h1>АВТОРИЗАЦИЯ</h1>
-        <div />
         <Input
           placeholder={"Электронная почта"}
           type={"email"}

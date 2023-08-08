@@ -9,16 +9,18 @@ const NavBar = () => {
       <div className={styles.main}>
         <NavLink
           style={({ isActive }) => ({
-            color: isActive ? "orange" : "white",
+            color: isActive ? "#594F77" : "#594F77",
+            fontWeight: isActive ? "800" : "400",
           })}
-          to={"/main"}
+          to={"/catalog"}
           className={styles.inactive}
         >
           Каталог
         </NavLink>
         <NavLink
           style={({ isActive }) => ({
-            color: isActive ? "orange" : "white",
+            color: isActive ? "#594F77" : "#594F77",
+            fontWeight: isActive ? "800" : "400",
           })}
           to={"/statistics"}
           className={styles.inactive}
@@ -27,7 +29,8 @@ const NavBar = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => ({
-            color: isActive ? "orange" : "white",
+            color: isActive ? "#594F77" : "#594F77",
+            fontWeight: isActive ? "800" : "400",
           })}
           to={"/feedBack"}
           className={styles.inactive}
@@ -36,7 +39,8 @@ const NavBar = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => ({
-            color: isActive ? "orange" : "white",
+            color: isActive ? "#594F77" : "#594F77",
+            fontWeight: isActive ? "800" : "400",
           })}
           to={"/Profile"}
           className={styles.inactive}
