@@ -15,12 +15,12 @@ const App = () => {
   return (
     <Routes>
       <Route path={routes.catalog} element={<Catalog />} />
-      <Route path="/statistics" element={<Statistics />} />
-      <Route path="/feedBack" element={<FeedBack />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/authorisation" element={<SignIn />} />
-      <Route path="/reg" element={<SignUp />} />
-      <Route path="/test" element={<Test />} />
+      <Route path={routes.statistics} element={<Statistics />} />
+      <Route path={routes.feedback} element={<FeedBack />} />
+      <Route path={routes.profile} element={<Profile />} />
+      <Route path={routes.authorisation} element={<SignIn />} />
+      <Route path={routes.registration} element={<SignUp />} />
+      <Route path={routes.test} element={<Test />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -5,6 +5,7 @@ import styles from "./SignIn.module.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import Users from "../../utils/Users";
+import routes from "../../services/routes";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const SignIn = () => {
     );
 
     if (finder !== undefined) {
-      navigate("/catalog");
+      navigate(routes.catalog);
     }
   };
 
@@ -47,7 +48,7 @@ const SignIn = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-        <Link className={styles.link} to="/reg">
+        <Link className={styles.link} to={routes.registration}>
           У вас нет аккаунта? Регистрация
         </Link>
         <Button type={"submit"} onClick={handleEnter}>

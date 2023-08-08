@@ -5,6 +5,7 @@ import styles from "./SignUp.module.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import adder from "../../utils/localStorage/adder";
+import routes from "../../services/routes";
 
 const SignUp = () => {
   const initialState = { gmail: "", login: "", password: "", repeat: "" };
@@ -75,7 +76,7 @@ const SignUp = () => {
       password: state.password,
     };
     adder(testUsers);
-    navigate("/authorisation");
+    navigate(routes.authorisation);
   };
   return (
     <div className={styles.container}>
@@ -107,7 +108,7 @@ const SignUp = () => {
           isRequired={true}
           onChange={handleRepeatChange}
         />
-        <Link className={styles.back} to={"/authorisation"}>
+        <Link className={styles.back} to={routes.authorisation}>
           У Вас уже есть аккаунт? Авторизация
         </Link>
         <Button type={"submit"}>РЕГИСТРАЦИЯ</Button>

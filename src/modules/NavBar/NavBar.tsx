@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import styles from "./NavBar.module.css";
+import routes from "../../services/routes";
 
 const NavBar = () => {
   return (
@@ -12,7 +13,7 @@ const NavBar = () => {
             color: isActive ? "#594F77" : "#594F77",
             fontWeight: isActive ? "800" : "400",
           })}
-          to={"/catalog"}
+          to={routes.catalog}
           className={styles.inactive}
         >
           Каталог
@@ -22,7 +23,7 @@ const NavBar = () => {
             color: isActive ? "#594F77" : "#594F77",
             fontWeight: isActive ? "800" : "400",
           })}
-          to={"/statistics"}
+          to={routes.statistics}
           className={styles.inactive}
         >
           Статистика
@@ -32,7 +33,7 @@ const NavBar = () => {
             color: isActive ? "#594F77" : "#594F77",
             fontWeight: isActive ? "800" : "400",
           })}
-          to={"/feedBack"}
+          to={routes.feedback}
           className={styles.inactive}
         >
           Обратная связь
@@ -42,7 +43,7 @@ const NavBar = () => {
             color: isActive ? "#594F77" : "#594F77",
             fontWeight: isActive ? "800" : "400",
           })}
-          to={"/Profile"}
+          to={routes.profile}
           className={styles.inactive}
         >
           Профиль
