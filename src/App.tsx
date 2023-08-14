@@ -10,6 +10,7 @@ import FeedBack from "./modules/FeedBack/FeedBack";
 import Profile from "./modules/Profile/Profile";
 import Test from "./modules/Test/Test";
 import routes from "./services/routes";
+import NavBar from "./modules/NavBar/NavBar";
 
 const App = () => {
   return (
@@ -20,7 +21,9 @@ const App = () => {
       <Route path={routes.profile} element={<Profile />} />
       <Route path={routes.authorisation} element={<SignIn />} />
       <Route path={routes.registration} element={<SignUp />} />
-      <Route path={routes.test} element={<Test />} />
+      <Route path={routes.test} element={<NavBar />}>
+        <Route path={":names"} element={<Test />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

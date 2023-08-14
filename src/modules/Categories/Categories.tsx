@@ -18,7 +18,7 @@ const Categories = ({ category }: { category: string }) => {
         return (
           <Link
             onClick={changer}
-            to={"/test"}
+            to={"/test/" + card.title}
             id={card.title}
             className={styles.container}
             key={card.id}

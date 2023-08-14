@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 import styles from "./NavBar.module.css";
 import routes from "../../services/routes";
@@ -49,6 +49,7 @@ const NavBar = () => {
           Профиль
         </NavLink>
       </div>
+      <Outlet />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import styles from "./Test.module.css";
 import react from "../../utils/React";
@@ -15,6 +15,7 @@ import arrow from "./arrow.png";
 const Test = () => {
   const location = useLocation();
   const { from } = location.state;
+  const { names } = useParams();
 
   const categoryChoose = () => {
     if (from.data.title == "react") {
@@ -35,8 +36,8 @@ const Test = () => {
   return (
     <div>
       <img src={arrow} className={styles.back} />
-      <NavBar />
       <main>
+        <p>{names}</p>
         {chosenCategories.map((category) => {
           return (
             <TestCard
