@@ -1,4 +1,53 @@
 .testBox {
-    border: blue 1px solid;
+    display: flex;
+    width: 780px;
+    height: 59px;
+    padding: 32px;
+    margin-bottom: 23px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 28px 0 rgba(176, 165, 209, 0.4);
     color: black;
+}
+.testBox h2 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 3px 0 12px 0;
+    color: #ABA6BA;
+}
+.testBox img {
+    width: 34px;
+    height: 34px;
+    margin-right: 20px;
+}
+.name {
+    margin-right: 64px;
+}
+.name h2 {
+    font-size: 14px;
+    color: #594F77;
+}
+.difficulty {
+    margin-right: 32px;
+}
+.amount {
+    margin-right: 32px;
+}
+.testBox p {
+    color: #594F77;
+}
+.name p {
+    font-size: 14px;
+    color: #ABA6BA;
+}
+.difficulty p {
+    text-align: center;
+    padding: 2px;
+    color: #AE8157;
+    border-radius: 8px;
+    background-color: #FFF6C7;
+}
+
+.testBox:hover {
+    box-shadow: 4px 4px 28px 0 rgba(176, 165, 209, 0.8);
+    cursor: pointer;
 }

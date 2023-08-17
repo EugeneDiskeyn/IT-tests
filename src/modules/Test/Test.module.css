@@ -1,8 +1,17 @@
 main {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .back {
-    position: fixed;
-    top: 20px;
-    left: 10px;
+    display: flex;
+    align-items: center;
+    width: 844px;
+    margin: 79px 0 23px 0;
+}
+.back img {
+    margin-right: 25px;
+}
+.back p {
+    font-size: 28px;
 }

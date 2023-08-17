@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 
 import styles from "./Test.module.css";
 import react from "../../utils/React";
@@ -8,9 +8,9 @@ import html from "../../utils/HTML";
 import css from "../../utils/Css";
 import git from "../../utils/GIT";
 import typeScript from "../../utils/TypeScript";
-import NavBar from "../NavBar/NavBar";
 import TestCard from "../../components/TestCard/TestCard";
 import arrow from "./arrow.png";
+import routes from "../../services/routes";
 
 const Test = () => {
   const location = useLocation();
@@ -35,15 +35,21 @@ const Test = () => {
   const chosenCategories = categoryChoose();
   return (
     <div>
-      <img src={arrow} className={styles.back} />
       <main>
-        <p>{names}</p>
+        <div className={styles.back}>
+          <Link to={routes.catalog}>
+            <img src={arrow} alt="arrow" />
+          </Link>
+          <p>{names?.toUpperCase()}</p>
+        </div>
         {chosenCategories.map((category) => {
           return (
             <TestCard
               name={category.name}
               difficulty={category.difficulty}
               amount={category.amount}
+              description={category.description}
+              skills={category.skills}
             />
           );
         })}
