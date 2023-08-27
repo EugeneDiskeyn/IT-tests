@@ -1,5 +1,6 @@
 .testBox {
     display: flex;
+    align-items: center;
     width: 780px;
     height: 59px;
     padding: 32px;
@@ -7,6 +8,9 @@
     border-radius: 50px;
     box-shadow: 4px 4px 28px 0 rgba(176, 165, 209, 0.4);
     color: black;
+}
+.testBox p {
+    color: #594F77;
 }
 .testBox h2 {
     font-size: 14px;
@@ -19,25 +23,26 @@
     height: 34px;
     margin-right: 20px;
 }
+.testBox:hover {
+    box-shadow: 4px 4px 28px 0 rgba(176, 165, 209, 0.8);
+    cursor: pointer;
+}
+
 .name {
     margin-right: 64px;
-}
-.name h2 {
-    font-size: 14px;
-    color: #594F77;
-}
-.difficulty {
-    margin-right: 32px;
-}
-.amount {
-    margin-right: 32px;
-}
-.testBox p {
-    color: #594F77;
 }
 .name p {
     font-size: 14px;
     color: #ABA6BA;
+}
+.name h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #594F77;
+}
+
+.difficulty {
+    margin-right: 32px;
 }
 .difficulty p {
     text-align: center;
@@ -47,7 +52,6 @@
     background-color: #FFF6C7;
 }
 
-.testBox:hover {
-    box-shadow: 4px 4px 28px 0 rgba(176, 165, 209, 0.8);
-    cursor: pointer;
+.amount {
+    margin-right: 32px;
 }

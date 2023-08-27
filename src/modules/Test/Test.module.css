@@ -9,9 +9,12 @@ main {
     width: 844px;
     margin: 79px 0 23px 0;
 }
-.back img {
-    margin-right: 25px;
+.back a {
+    max-height: 32px;
 }
 .back p {
+    margin-left: 25px;
     font-size: 28px;
+    font-weight: bold;
+    color: #594F77;
 }

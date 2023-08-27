@@ -7,7 +7,7 @@ import styles from "./Catalog.module.css";
 const Catalog = () => {
   const [category, setCategory] = useState("all");
 
-  function handleCategory(event: any) {
+  const handleCategory = (event: any) => {
     const categoryNodes = event.target.parentNode.childNodes;
     if (event.target.localName === "li") {
       for (let i = 0; i < categoryNodes.length; i++) {
@@ -16,7 +16,8 @@ const Catalog = () => {
       event.target.className = styles.active;
       setCategory(event.target.id);
     }
-  }
+  };
+
   return (
     <>
       <NavBar />

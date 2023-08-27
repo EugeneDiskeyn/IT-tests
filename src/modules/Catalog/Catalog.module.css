@@ -13,20 +13,15 @@
 .ul li {
     display: inline-block;
     margin-right: 40px;
-    font-weight: 400;
     list-style-type: none;
+    color: #594F77;
     cursor: pointer;
 }
 
 .inactive {
-    color: #594F77;
+    font-weight: normal;
 }
-.inactive:hover {
-    color: #594F77;
-}
-
 .active {
-    color: #594F77;
     font-weight: 900;
 }
 .active::before {

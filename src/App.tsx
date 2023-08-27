@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import SignUp from "./modules/SignUp/SignUp";
 import SignIn from "./modules/SignIn/SignIn";
@@ -15,6 +15,10 @@ import NavBar from "./modules/NavBar/NavBar";
 const App = () => {
   return (
     <Routes>
+      <Route
+        path="/"
+        element={<Navigate to={routes.authorisation} replace />}
+      />
       <Route path={routes.catalog} element={<Catalog />} />
       <Route path={routes.statistics} element={<Statistics />} />
       <Route path={routes.feedback} element={<FeedBack />} />
