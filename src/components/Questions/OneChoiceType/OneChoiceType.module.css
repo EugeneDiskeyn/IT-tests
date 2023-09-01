@@ -1,0 +1,19 @@
+.oneChoiceType {
+    margin-bottom: 24px;
+}
+.oneChoiceType p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #594F77;
+}
+
+.oneChoiceType label {
+    display: block;
+    color: #594F77;
+    font-size: 18px;
+}
+
+.oneChoiceType input {
+    margin-bottom: 30px;
+}

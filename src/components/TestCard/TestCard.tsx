@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import styles from "./TestCard.module.css";
+import routes from "../../services/routes";
 
 interface TestProps {
   name: string;
@@ -17,8 +19,14 @@ const TestCard = ({
   description,
   skills,
 }: TestProps) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const nav = () => {
+    console.log(location.pathname);
+    navigate(location.pathname + "/" + name);
+  };
   return (
-    <div className={styles.testBox}>
+    <div className={styles.testBox} onClick={nav}>
       <img src="" alt={"mascot"} />
       <div className={styles.name}>
         <h2>{name}</h2>

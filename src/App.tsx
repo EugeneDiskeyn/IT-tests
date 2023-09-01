@@ -8,9 +8,10 @@ import NotFound from "./modules/NotFound/NotFound";
 import Statistics from "./modules/Statistics/Statistics";
 import FeedBack from "./modules/FeedBack/FeedBack";
 import Profile from "./modules/Profile/Profile";
-import Test from "./modules/Test/Test";
+import TestList from "./modules/TestList/TestList";
 import routes from "./services/routes";
 import NavBar from "./modules/NavBar/NavBar";
+import Test from "./modules/TestList/Test/Test";
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
       <Route path={routes.authorisation} element={<SignIn />} />
       <Route path={routes.registration} element={<SignUp />} />
       <Route path={routes.test} element={<NavBar />}>
-        <Route path={":names"} element={<Test />} />
+        <Route path={":names"} element={<TestList />} />
+        <Route path={":names/:testName"} element={<Test />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

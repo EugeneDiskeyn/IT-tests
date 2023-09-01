@@ -1,0 +1,19 @@
+.severalChoiceType {
+    margin-bottom: 24px;
+}
+.severalChoiceType p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #594F77;
+}
+
+.severalChoiceType label {
+    display: block;
+    color: #594F77;
+    font-size: 18px;
+}
+
+.severalChoiceType input {
+    margin-bottom: 30px;
+}

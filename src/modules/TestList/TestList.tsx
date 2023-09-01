@@ -1,13 +1,13 @@
 import React from "react";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-import styles from "./Test.module.css";
+import styles from "./TestList.module.css";
 import tests from "../../utils/Test";
 import TestCard from "../../components/TestCard/TestCard";
 import arrow from "./arrow.svg";
 import routes from "../../services/routes";
 
-const Test = () => {
+const TestList = () => {
   const { names } = useParams();
 
   const filteredTests = tests.filter((card) => card.type === names);
@@ -37,4 +37,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default TestList;

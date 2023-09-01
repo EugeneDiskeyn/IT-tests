@@ -1,8 +1,9 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import React from "react";
 
 import styles from "./Categories.module.css";
 import categories from "../../utils/Categories";
+import routes from "../../services/routes";
 
 const Categories = ({ category }: { category: string }) => {
   const filteredCategories = categories.filter(
@@ -14,7 +15,7 @@ const Categories = ({ category }: { category: string }) => {
       {filteredCategories.map((card) => {
         return (
           <Link
-            to={"/test/" + card.title}
+            to={routes.test + "/" + card.title}
             id={card.title}
             className={styles.container}
             key={card.id}
