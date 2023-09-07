@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.91645c92.css",
+    "main.js": "/static/js/main.30714ba6.js",
+    "static/js/787.dd1af7ab.chunk.js": "/static/js/787.dd1af7ab.chunk.js",
+    "static/media/css.svg": "/static/media/css.e477204cbccc88b6058e4b614d27835c.svg",
+    "static/media/javaScript.svg": "/static/media/javaScript.6202a75a2322be888be7097bfb80c8be.svg",
+    "static/media/HTML.svg": "/static/media/HTML.566b0157db48ee8f7898238b24d69802.svg",
+    "static/media/git.svg": "/static/media/git.34214ad4b1f59222998daa5b17213df3.svg",
+    "static/media/react.svg": "/static/media/react.d986141e222481716572092a3c9d939f.svg",
+    "static/media/typescript.svg": "/static/media/typescript.86e7163b592a65aa279be15200068191.svg",
+    "static/media/virtual-assistant.svg": "/static/media/virtual-assistant.ba24c953d1790d56f694735883b5e01d.svg",
+    "static/media/404.svg": "/static/media/404.6eb81a000e4f74cfbe098e923658a74e.svg",
+    "static/media/arrow.svg": "/static/media/arrow.ff12ccaa694a820f21b03e4507f72843.svg",
+    "index.html": "/index.html",
+    "main.91645c92.css.map": "/static/css/main.91645c92.css.map",
+    "main.30714ba6.js.map": "/static/js/main.30714ba6.js.map",
+    "787.dd1af7ab.chunk.js.map": "/static/js/787.dd1af7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91645c92.css",
+    "static/js/main.30714ba6.js"
+  ]
+}
