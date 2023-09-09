@@ -28,7 +28,7 @@ const App = () => {
       <Route path={routes.registration} element={<SignUp />} />
       <Route path={routes.test} element={<NavBar />}>
         <Route path={":names"} element={<TestList />} />
-        <Route path={":names/:testName"} element={<Test />} />
+        <Route path={":names/:testId"} element={<Test />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

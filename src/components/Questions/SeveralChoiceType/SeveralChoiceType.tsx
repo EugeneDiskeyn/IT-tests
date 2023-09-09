@@ -5,7 +5,7 @@ import styles from "./SeveralChoiceType.module.css";
 interface props {
   id: number;
   question: string;
-  answers: string[];
+  answers: any;
 }
 
 const SeveralChoiceType = ({ id, question, answers }: props) => {
@@ -14,7 +14,7 @@ const SeveralChoiceType = ({ id, question, answers }: props) => {
       <p>
         {id}. {question}
       </p>
-      {answers.map((answer, index) => (
+      {answers.map((answer: any, index: number) => (
         <label key={index}>
           <input type={"checkbox"} name={question} />
           {answer}

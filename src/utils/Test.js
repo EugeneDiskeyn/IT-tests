@@ -1,6 +1,7 @@
 const tests = [
   {
     id: 1,
+    testId: 1,
     type: "css",
     name: "css test 1",
     description: "describing",
@@ -10,6 +11,7 @@ const tests = [
   },
   {
     id: 2,
+    testId: 2,
     type: "css",
     amount: 25,
     description: "describing",
@@ -19,6 +21,7 @@ const tests = [
   },
   {
     id: 3,
+    testId: 1,
     type: "git",
     name: "git test 1",
     description: "describing",
@@ -28,6 +31,7 @@ const tests = [
   },
   {
     id: 4,
+    testId: 2,
     type: "git",
     amount: 25,
     description: "describing",
@@ -37,6 +41,7 @@ const tests = [
   },
   {
     id: 5,
+    testId: 1,
     type: "html",
     name: "html test 1",
     description: "describing",
@@ -46,6 +51,7 @@ const tests = [
   },
   {
     id: 6,
+    testId: 2,
     type: "html",
     amount: 25,
     name: "html test 2",
@@ -55,6 +61,7 @@ const tests = [
   },
   {
     id: 7,
+    testId: 1,
     type: "javaScript",
     name: "javaScript test 1",
     description: "describing",
@@ -64,6 +71,7 @@ const tests = [
   },
   {
     id: 8,
+    testId: 2,
     type: "javaScript",
     amount: 25,
     name: "javaScript test 2",
@@ -73,6 +81,7 @@ const tests = [
   },
   {
     id: 9,
+    testId: 1,
     type: "react",
     name: "react test 1",
     description: "describing",
@@ -82,6 +91,7 @@ const tests = [
   },
   {
     id: 10,
+    testId: 2,
     type: "react",
     amount: 25,
     name: "react test 2",
@@ -91,6 +101,7 @@ const tests = [
   },
   {
     id: 11,
+    testId: 1,
     type: "typeScript",
     name: "typeScript test 1",
     description: "describing",
@@ -100,6 +111,7 @@ const tests = [
   },
   {
     id: 12,
+    testId: 2,
     type: "typeScript",
     amount: 25,
     name: "typeScript test 2",

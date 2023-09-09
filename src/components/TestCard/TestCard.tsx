@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import styles from "./TestCard.module.css";
-import routes from "../../services/routes";
 
 interface TestProps {
+  id: number;
   name: string;
   difficulty: string;
   amount: number;
@@ -13,6 +13,7 @@ interface TestProps {
 }
 
 const TestCard = ({
+  id,
   name,
   difficulty,
   amount,
@@ -22,8 +23,7 @@ const TestCard = ({
   const location = useLocation();
   const navigate = useNavigate();
   const nav = () => {
-    console.log(location.pathname);
-    navigate(location.pathname + "/" + name);
+    navigate(location.pathname + "/" + (id + 1));
   };
   return (
     <div className={styles.testBox} onClick={nav}>

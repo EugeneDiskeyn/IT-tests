@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import styles from "./TestList.module.css";
 import tests from "../../utils/Test";
 import TestCard from "../../components/TestCard/TestCard";
-import arrow from "./arrow.svg";
+import arrow from "../../images/icons/arrow.svg";
 import routes from "../../services/routes";
 
 const TestList = () => {
@@ -21,9 +21,10 @@ const TestList = () => {
           </Link>
           <p>{names?.toUpperCase()}</p>
         </div>
-        {filteredTests.map((category) => {
+        {filteredTests.map((category, index) => {
           return (
             <TestCard
+              id={index}
               name={category.name}
               difficulty={category.difficulty}
               amount={category.amount}
