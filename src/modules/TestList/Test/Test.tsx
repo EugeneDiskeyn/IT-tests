@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import styles from "./Test.module.css";
 import WriteType from "../../../components/Questions/WriteType/WriteType";
@@ -7,50 +7,44 @@ import OneChoiceType from "../../../components/Questions/OneChoiceType/OneChoice
 import SeveralChoiceType from "../../../components/Questions/SeveralChoiceType/SeveralChoiceType";
 import Button from "../../../components/Button/Button";
 
-import questions from "../../../utils/Tests/questions";
 import arrow from "../../../images/icons/arrow.svg";
 import routes from "../../../services/routes";
+import TestTests from "../../../utils/Tests/TestTests";
 
 const Test = () => {
   const params = useParams();
   const testId = Number(params.testId);
-  console.log(useLocation());
-  const nameToNum = () => {
+  const testChoice = () => {
     switch (params.names) {
       case "react":
-        return 0;
+        return TestTests.react.test;
       case "javaScript":
-        return 1;
+        return TestTests.javaScript.test;
       case "html":
-        return 2;
+        return TestTests.html.test;
       case "css":
-        return 3;
+        return TestTests.css.test;
       case "git":
-        return 4;
-      case "typeScript":
-        return 5;
+        return TestTests.git.test;
       default:
-        return -1;
+        return TestTests.typeScript.test;
     }
   };
-  const submited = () => {
+  const questions = testChoice();
+  const handleSubmit = () => {
     console.log("hey");
   };
 
   return (
     <div className={styles.background}>
-      <form
-        className={styles.questionArea}
-        onSubmit={submited}
-        action={"mailto:cuda@gmail.com"}
-      >
+      <form className={styles.questionArea} onSubmit={handleSubmit}>
         <div className={styles.back}>
           <Link to={routes.catalog}>
             <img src={arrow} alt={arrow} />
           </Link>
           <h1>TestName</h1>
         </div>
-        {questions[nameToNum()][testId - 1].map((question, index) => {
+        {questions[testId - 1].map((question: any, index: number) => {
           if (question.type === "write") {
             return <WriteType id={index + 1} question={question.question} />;
           } else if (question.type === "oneChoice") {

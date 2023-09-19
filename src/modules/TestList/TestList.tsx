@@ -30,6 +30,7 @@ const TestList = () => {
               amount={category.amount}
               description={category.description}
               skills={category.skills}
+              key={index}
             />
           );
         })}
