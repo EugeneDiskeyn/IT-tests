@@ -6,20 +6,29 @@ interface props {
   id: number;
   question: string;
   answers: any;
+  onClick?: (event: any) => void;
 }
 
-const SeveralChoiceType = ({ id, question, answers }: props) => {
+const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
   return (
     <div className={styles.severalChoiceType}>
+      `
       <p>
         {id}. {question}
       </p>
-      {answers.map((answer: any, index: number) => (
-        <label key={index}>
-          <input type={"checkbox"} name={question} />
-          {answer}
-        </label>
-      ))}
+      <div>
+        {answers.map((answer: any, index: number) => (
+          <label key={index}>
+            <input
+              id={index.toString()}
+              type={"checkbox"}
+              name={question}
+              onClick={onClick}
+            />
+            {answer}
+          </label>
+        ))}
+      </div>
     </div>
   );
 };

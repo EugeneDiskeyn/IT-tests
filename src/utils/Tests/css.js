@@ -34,7 +34,7 @@ const css = [
   ],
   [
     {
-      id: 4,
+      id: 1,
       type: "oneChoice",
       question: "С помощью свойства line-height задают:",
       answers: [
@@ -45,7 +45,7 @@ const css = [
       ],
     },
     {
-      id: 5,
+      id: 2,
       type: "severalChoice",
       question:
         "Выберите корректные варианты связывания label и input при вёрстке форм",
@@ -57,7 +57,7 @@ const css = [
       ],
     },
     {
-      id: 6,
+      id: 3,
       type: "oneChoice",
       question: "Современный CSS(укажите верный вариант)",
       answers: [

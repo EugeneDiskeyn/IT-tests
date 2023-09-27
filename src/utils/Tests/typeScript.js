@@ -34,7 +34,7 @@ const typeScript = [
   ],
   [
     {
-      id: 4,
+      id: 1,
       type: "oneChoice",
       question:
         "Что делает модификатор доступа 'readonly' для присвоения переменной массива, " +
@@ -47,7 +47,7 @@ const typeScript = [
       ],
     },
     {
-      id: 5,
+      id: 2,
       type: "oneChoice",
       question: "_____ - это возвращаемый тип, когда ничего не возвращается",
       answers: ["any[]", "void", "any", "unknown"],

@@ -36,7 +36,7 @@ const react = [
   ],
   [
     {
-      id: 4,
+      id: 1,
       type: "oneChoice",
       question:
         "Какой метод жизненного цикла компонента лучше всего подходит для выполнения сайд-эффектов?",
@@ -48,7 +48,7 @@ const react = [
       ],
     },
     {
-      id: 5,
+      id: 2,
       type: "severalChoice",
       question: "Выберите верные утверждения:",
       answers: [
@@ -59,7 +59,7 @@ const react = [
       ],
     },
     {
-      id: 6,
+      id: 3,
       type: "severalChoice",
       question: "Выберите верные утверждения о Redux",
       answers: [

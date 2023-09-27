@@ -4,7 +4,7 @@ import styles from "./Button.module.css";
 interface ButtonProps {
   children: React.ReactNode;
   isDisabled?: boolean;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset";
   onClick?: (event: any) => void;
 }
 const Button = ({ children, isDisabled, type, onClick }: ButtonProps) => {

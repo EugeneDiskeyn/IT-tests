@@ -5,9 +5,10 @@ interface props {
   id: number;
   question: string;
   answers: any;
+  onClick?: (event: any) => void;
 }
 
-const OneChoiceType = ({ id, question, answers }: props) => {
+const OneChoiceType = ({ id, question, answers, onClick }: props) => {
   return (
     <div className={styles.oneChoiceType}>
       <p>
@@ -15,7 +16,12 @@ const OneChoiceType = ({ id, question, answers }: props) => {
       </p>
       {answers.map((answer: any, index: number) => (
         <label key={index}>
-          <input type={"radio"} name={question} />
+          <input
+            id={id.toString()}
+            type={"radio"}
+            name={question}
+            onClick={onClick}
+          />
           {answer}
         </label>
       ))}

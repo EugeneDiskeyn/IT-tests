@@ -52,14 +52,14 @@ const html = [
   ],
   [
     {
-      id: 6,
+      id: 1,
       type: "oneChoice",
       question:
         "Какие атрибуты изображения являются обязательными с точки зрения валидации",
       answers: ["alt", "title", "type", "id"],
     },
     {
-      id: 7,
+      id: 2,
       type: "oneChoice",
       question: "Какой блок размечается тэгом <aside>",
       answers: [
@@ -70,19 +70,19 @@ const html = [
       ],
     },
     {
-      id: 8,
+      id: 3,
       type: "oneChoice",
       question:
         "Какие атрибуты изображения являюся обязательными с точки зрения валидации",
       answers: ["all", "title", "class", "id"],
     },
     {
-      id: 9,
+      id: 4,
       type: "write",
       question: "Какие глобальные изменения перетерпел html за всё время?",
     },
     {
-      id: 10,
+      id: 5,
       type: "severalChoice",
       question: "Что характерно для строчных элементов",
       answers: [

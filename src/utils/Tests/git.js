@@ -39,7 +39,7 @@ const git = [
   ],
   [
     {
-      id: 4,
+      id: 1,
       type: "oneChoice",
       question: "Что делает команда git add?",
       answers: [
@@ -50,7 +50,7 @@ const git = [
       ],
     },
     {
-      id: 5,
+      id: 2,
       type: "oneChoice",
       question:
         "Что означает статус файла untracked в выводе команды git status?",
@@ -62,7 +62,7 @@ const git = [
       ],
     },
     {
-      id: 6,
+      id: 3,
       type: "oneChoice",
       question: "Что означает статус файла new в выводе команды git status?",
       answers: [

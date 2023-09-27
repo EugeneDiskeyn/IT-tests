@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import styles from "./TestCard.module.css";
+import penguin from "../../images/icons/Avatars.svg";
 
 interface TestProps {
   id: number;
@@ -22,12 +23,13 @@ const TestCard = ({
 }: TestProps) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const nav = () => {
-    navigate(location.pathname + "/" + (id + 1));
+
+  const handleNavigate = () => {
+    navigate(location.pathname + "/" + (id + 1), { state: { name } });
   };
   return (
-    <div className={styles.testBox} onClick={nav}>
-      <img src="" alt={"mascot"} />
+    <div className={styles.testBox} onClick={handleNavigate}>
+      <img src={penguin} alt={"mascot"} />
       <div className={styles.name}>
         <h2>{name}</h2>
         <p>{description}</p>

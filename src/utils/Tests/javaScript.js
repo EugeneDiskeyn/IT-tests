@@ -28,7 +28,7 @@ const javaScript = [
   ],
   [
     {
-      id: 4,
+      id: 1,
       type: "severalChoice",
       question:
         "Для получения/установки свойства [[Prototype]] мы можем использовать",
@@ -40,7 +40,7 @@ const javaScript = [
       ],
     },
     {
-      id: 5,
+      id: 2,
       type: "severalChoice",
       question: "Что характерно для строчных элементов",
       answers: [
@@ -51,7 +51,7 @@ const javaScript = [
       ],
     },
     {
-      id: 6,
+      id: 3,
       type: "severalChoice",
       question: "ыберите верные утверждения о DOM",
       answers: [
