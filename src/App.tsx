@@ -12,6 +12,7 @@ import TestList from "./modules/TestList/TestList";
 import routes from "./services/routes";
 import NavBar from "./modules/NavBar/NavBar";
 import Test from "./modules/TestList/Test/Test";
+import TestAnswers from "./modules/TestList/Test/TestAnswers/TestAnswers";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
       <Route path={routes.test} element={<NavBar />}>
         <Route path={":names"} element={<TestList />} />
         <Route path={":names/:testId"} element={<Test />} />
+        <Route path={":names/:testId/answers"} element={<TestAnswers />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

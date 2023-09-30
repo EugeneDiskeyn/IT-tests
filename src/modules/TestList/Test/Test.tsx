@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 
 import styles from "./Test.module.css";
 import WriteType from "../../../components/Questions/WriteType/WriteType";
@@ -11,58 +11,79 @@ import routes from "../../../services/routes";
 import TestTests from "../../../utils/Tests/TestTests";
 
 const Test = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const params = useParams();
-  const testId = Number(params.testId);
+  const testId = Number(params.testId) - 1;
   const questions = testChoice(params.names);
-  const [answers, setAnswers] = useState([]);
+
+  const initialState = () => {
+    let safe: any = [];
+    let length = questions[testId].length;
+    safe.length = length;
+    for (let i = 0; i < length; i++) {
+      safe[i] = {
+        type: questions[testId][i].type,
+        question: questions[testId][i].question,
+        answer: "",
+      };
+    }
+    return safe;
+  };
+
+  const [answers, setAnswers] = useState(initialState);
+
   const handleSubmit = () => {
+    navigate(location.pathname + "/answers", { state: { answers } });
     console.log("hey");
   };
 
-  const something = (event: any) => {
+  const handleWriteAnswer = (event: any) => {
     let index: number = 0;
-    let safe: any = answers;
-    questions[testId - 1].map((question: any) => {
+    const safe: any = answers;
+    questions[testId].map((question: any) => {
       if (question.question === event.target.name) {
         index = question.id - 1;
       }
     });
-    if (answers.length === 0) {
-      let length = questions[testId - 1].length;
-      safe.length = length;
-      for (let i = 0; i < length; i++) {
-        safe[i] = {
-          type: questions[testId - 1][i].type,
-          question: questions[testId - 1][i].question,
-          answer: "",
-        };
-      }
-      setAnswers(safe);
-    }
-    safe = answers;
-    if (questions[testId - 1][index].type === "oneChoice") {
-      safe[index].answer = event.target.parentNode.innerText;
-    } else if (questions[testId - 1][index].type === "write") {
-      safe[index].answer = event.target.value;
-    } else {
-      let answerRememberer: any = [];
-      for (
-        let i = 0, k = 0;
-        i < questions[testId - 1][index].answers.length;
-        i++
-      ) {
-        if (
-          event.target.parentNode.parentElement.childNodes[i].childNodes[0]
-            .checked === true
-        ) {
-          answerRememberer[k++] = questions[testId - 1][index].answers[i];
-        }
-      }
-      safe[index].answer = answerRememberer;
-    }
+    safe[index].answer = event.target.value;
     setAnswers(safe);
-    console.log(safe);
+  };
+
+  const handleOneChoiceAnswer = (event: any) => {
+    let index: number = 0;
+    const safe: any = answers;
+    questions[testId].map((question: any) => {
+      if (question.question === event.target.name) {
+        index = question.id - 1;
+      }
+    });
+    safe[index].answer = event.target.parentNode.innerText;
+    setAnswers(safe);
+    console.log(answers);
+  };
+
+  const handleSeveralChoiceAnswer = (event: any) => {
+    let index: number = 0;
+    const safe: any = answers;
+    questions[testId].map((question: any) => {
+      if (question.question === event.target.name) {
+        index = question.id - 1;
+      }
+    });
+
+    const answerRememberer: any = [];
+    for (let i = 0, k = 0; i < questions[testId][index].answers.length; i++) {
+      if (
+        event.target.parentNode.parentElement.childNodes[i].childNodes[0]
+          .checked === true
+      ) {
+        answerRememberer[k++] = questions[testId][index].answers[i];
+      }
+    }
+    safe[index].answer = answerRememberer;
+    setAnswers(safe);
+    console.log(answers);
   };
 
   return (
@@ -74,13 +95,13 @@ const Test = () => {
           </Link>
           <h1>{location.state.name}</h1>
         </div>
-        {questions[testId - 1].map((question: any, index: number) => {
+        {questions[testId].map((question: any, index: number) => {
           if (question.type === "write") {
             return (
               <WriteType
                 id={index + 1}
                 question={question.question}
-                onChange={something}
+                onChange={handleWriteAnswer}
               />
             );
           } else if (question.type === "oneChoice") {
@@ -89,7 +110,7 @@ const Test = () => {
                 id={index + 1}
                 question={question.question}
                 answers={question.answers}
-                onClick={something}
+                onClick={handleOneChoiceAnswer}
               />
             );
           } else {
@@ -98,7 +119,7 @@ const Test = () => {
                 id={index + 1}
                 question={question.question}
                 answers={question.answers}
-                onClick={something}
+                onClick={handleSeveralChoiceAnswer}
               />
             );
           }
