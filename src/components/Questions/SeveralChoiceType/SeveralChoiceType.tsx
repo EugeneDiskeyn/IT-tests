@@ -13,9 +13,9 @@ const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
   return (
     <div className={styles.severalChoiceType}>
       `
-      <p>
+      <h1>
         {id}. {question}
-      </p>
+      </h1>
       <div>
         {answers.map((answer: any, index: number) => (
           <label key={index}>

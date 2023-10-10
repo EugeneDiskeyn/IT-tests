@@ -11,9 +11,9 @@ interface props {
 const OneChoiceType = ({ id, question, answers, onClick }: props) => {
   return (
     <div className={styles.oneChoiceType}>
-      <p>
+      <h1>
         {id}. {question}
-      </p>
+      </h1>
       {answers.map((answer: any, index: number) => (
         <label key={index}>
           <input

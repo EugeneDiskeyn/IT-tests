@@ -11,9 +11,9 @@ interface Props {
 const WriteType = ({ id, question, onChange }: Props) => {
   return (
     <div className={styles.writeType}>
-      <p>
+      <h1>
         {id}. {question}
-      </p>
+      </h1>
       <textarea name={question} placeholder={"Ответ"} onChange={onChange} />
     </div>
   );
