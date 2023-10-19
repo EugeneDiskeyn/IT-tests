@@ -3,10 +3,27 @@
     justify-content: center;
     margin-top: 50px;
 }
+
+.testName {
+    margin-bottom: 57px;
+    font-size: 30px;
+}
+
 .answersForm {
-    width: 833px;
+    width: 738px;
     margin-bottom: 20px;
-    padding: 31px 0 20px 95px;
+    padding: 31px 95px 20px 95px;
     border-radius: 30px;
     box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
+}
+.answersForm Button {
+    margin-left: 300px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 26px rgba(115, 92, 255, 0.35);
+}
+
+.result {
+    position: absolute;
+    top: 151px;
+    right: 380px;
 }

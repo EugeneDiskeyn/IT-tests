@@ -1,9 +1,32 @@
 .answer {
-    border: 1px solid black;
+    margin-bottom: 20px;
 }
-.answer h1 {
-    margin-bottom: 30px;
+
+.question {
+    display: flex;
+    align-items: center;
+    margin-top: 57px;
+}
+
+.question h1 {
+    padding: 0;
     font-size: 18px;
     font-weight: 800;
+    color: #594F77;
+}
+
+.question div {
+    margin-left: 24px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.answers {
+    display: flex;
+}
+
+.answers, .rightAnswers {
+    margin-top: 34px;
+    font-size: 14px;
     color: #594F77;
 }

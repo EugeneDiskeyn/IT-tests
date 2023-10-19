@@ -1,18 +1,26 @@
-import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { Answer } from "../../../../components/Answer/Answer";
 
 import styles from "./TestAnswers.module.css";
 import answers from "../../../../utils/Tests/answers";
+import Button from "../../../../components/Button/Button";
+import routes from "../../../../services/routes";
 
 const TestAnswers = () => {
   const params = useParams();
   const location = useLocation();
   const rightAnswers = rightAnswerChoice(params);
+  const navigate = useNavigate();
   const userAnswers = location.state.answers;
+  let rightAnswersNum = 0;
+
   return (
     <div className={styles.background}>
       <form className={styles.answersForm}>
+        <h1 className={styles.testName}>
+          {params.names} {params.testId}
+        </h1>
         {userAnswers.map((userAnswer: any, index: number) => {
           let flag = true;
           if (userAnswer.type !== "severalChoice") {
@@ -37,7 +45,9 @@ const TestAnswers = () => {
               }
             }
           }
-          console.log(userAnswer);
+          if (flag) {
+            rightAnswersNum++;
+          }
           return (
             <Answer
               id={index}
@@ -48,6 +58,17 @@ const TestAnswers = () => {
             />
           );
         })}
+        <Button
+          type={"submit"}
+          onClick={() => {
+            navigate(routes.catalog);
+          }}
+        >
+          На главную
+        </Button>
+        <h1 className={styles.result}>
+          {rightAnswersNum}/{userAnswers.length}
+        </h1>
       </form>
     </div>
   );
