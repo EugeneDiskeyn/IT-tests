@@ -6,6 +6,9 @@ const routes = {
   authorisation: "/authorisation",
   registration: "/registration",
   test: "/test",
+  names: ":names",
+  testId: ":names/:testId",
+  answers: ":names/:testId/answers",
 };
 
 export default routes;

@@ -10,6 +10,7 @@ const NotFound = () => {
   const handler = () => {
     navigate(routes.authorisation);
   };
+
   return (
     <div className={styles.main}>
       <img

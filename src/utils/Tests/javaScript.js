@@ -63,4 +63,56 @@ const javaScript = [
     },
   ],
 ];
-export default javaScript;
+
+const javaScriptAnswers = [
+  [
+    {
+      id: 7,
+      type: "oneChoice",
+      question: "Какие какие виды преобразований типов есть в javaScript",
+      rightAnswer: "Численные",
+    },
+    {
+      id: 8,
+      type: "oneChoice",
+      question:
+        "Если функция не имеет директивы return или она пустая, то возвращаемое значение будет",
+      rightAnswer: "Null",
+    },
+    {
+      id: 9,
+      type: "oneChoice",
+      question:
+        "Какие атрибуты изображения являюся обязательными с точки зрения валидации",
+      rightAnswer: "all",
+    },
+  ],
+  [
+    {
+      id: 10,
+      type: "severalChoice",
+      question:
+        "Для получения/установки свойства [[Prototype]] мы можем использовать",
+      rightAnswer: ["__proto__", "Object.getPrototypeOf/Object.setPrototypeOf"],
+    },
+    {
+      id: 11,
+      type: "severalChoice",
+      question: "Что характерно для строчных элементов",
+      rightAnswer: [
+        "Начинаются с новой строки",
+        "К ним не применяются свойства width и height",
+      ],
+    },
+    {
+      id: 12,
+      type: "severalChoice",
+      question: "ыберите верные утверждения о DOM",
+      rightAnswer: [
+        "Каждый HTML-тег является объектом",
+        "Комментарии внутри HTML являются узлами DOM",
+      ],
+    },
+  ],
+];
+export { javaScript, javaScriptAnswers };

@@ -1,4 +1,5 @@
 import React from "react";
+
 import styles from "../OneChoiceType/OneChoiceType.module.css";
 
 interface props {

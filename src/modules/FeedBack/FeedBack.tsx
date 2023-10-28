@@ -9,13 +9,13 @@ import assistant from "../../images/logos/virtual-assistant.svg";
 
 const FeedBack = () => {
   const users = getter();
-  const [login, setLogin] = useState();
-  const [gmail, setGmail] = useState();
+  const [login, setLogin] = useState<string>();
+  const [gmail, setGmail] = useState<string>();
 
-  const loginSetter = (event: any) => {
+  const loginSetter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLogin(event.target.value);
   };
-  const gmailSetter = (event: any) => {
+  const gmailSetter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGmail(event.target.value);
   };
 

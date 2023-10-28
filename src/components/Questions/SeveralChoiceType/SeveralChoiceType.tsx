@@ -12,7 +12,6 @@ interface props {
 const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
   return (
     <div className={styles.severalChoiceType}>
-      `
       <h1>
         {id}. {question}
       </h1>

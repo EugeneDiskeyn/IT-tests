@@ -9,8 +9,8 @@ import routes from "../../services/routes";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const [gmail, setGmail] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const [gmail, setGmail] = useState<string>("");
 
   const handleEnter = () => {
     const finder = Users.find(

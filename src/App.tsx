@@ -28,9 +28,9 @@ const App = () => {
       <Route path={routes.authorisation} element={<SignIn />} />
       <Route path={routes.registration} element={<SignUp />} />
       <Route path={routes.test} element={<NavBar />}>
-        <Route path={":names"} element={<TestList />} />
-        <Route path={":names/:testId"} element={<Test />} />
-        <Route path={":names/:testId/answers"} element={<TestAnswers />} />
+        <Route path={routes.names} element={<TestList />} />
+        <Route path={routes.testId} element={<Test />} />
+        <Route path={routes.answers} element={<TestAnswers />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

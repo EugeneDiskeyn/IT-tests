@@ -72,4 +72,58 @@ const react = [
   ],
 ];
 
-export default react;
+const reactAnswers = [
+  [
+    {
+      id: 1,
+      type: "oneChoice",
+      question: "Rect - это",
+      rightAnswer: "Фреймворк для создания UI",
+    },
+    {
+      id: 2,
+      type: "oneChoice",
+      question: "Базовыми концепциями React являются:",
+      rightAnswer:
+        "Компонентный подход, виртуальный DOM (дерево react-элементов), модульные стили, методы жизненного цикла",
+    },
+    {
+      id: 3,
+      type: "severalChoice",
+      question: "Выберите верные утверждения для props:",
+      rightAnswer: [
+        "props - это объект, свойства которого можно изменять внутри компонента",
+        "props - это объект, свойства которого доступны тоько для чтения внутри компонента",
+      ],
+    },
+  ],
+  [
+    {
+      id: 4,
+      type: "oneChoice",
+      question:
+        "Какой метод жизненного цикла компонента лучше всего подходит для выполнения сайд-эффектов?",
+      rightAnswer: "componentWillMount",
+    },
+    {
+      id: 5,
+      type: "severalChoice",
+      question: "Выберите верные утверждения:",
+      rightAnswer: [
+        "хуки можно вызвать внутри условий и циклов",
+        "хуки не могут быть использованы в классовом компоненте ",
+      ],
+    },
+    {
+      id: 6,
+      type: "severalChoice",
+      question: "Выберите верные утверждения о Redux",
+      rightAnswer: [
+        "selectors - это функции, возвращающие информацию из store",
+        'action - это объект, содержащее как минимум одно обязательное свойство "type"',
+      ],
+    },
+  ],
+];
+
+export { react, reactAnswers };

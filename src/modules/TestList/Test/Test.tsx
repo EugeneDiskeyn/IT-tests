@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 
 import styles from "./Test.module.css";
@@ -8,7 +8,14 @@ import SeveralChoiceType from "../../../components/Questions/SeveralChoiceType/S
 import Button from "../../../components/Button/Button";
 import arrow from "../../../images/icons/arrow.svg";
 import routes from "../../../services/routes";
-import TestTests from "../../../utils/Tests/TestTests";
+import testTests from "../../../utils/Tests/testTests";
+
+interface Answer {
+  id: number;
+  type: string;
+  question: string;
+  answer: string;
+}
 
 const Test = () => {
   const navigate = useNavigate();
@@ -17,63 +24,53 @@ const Test = () => {
   const testId = Number(params.testId) - 1;
   const questions = testChoice(params.names);
 
-  const initialState = () => {
-    let safe: any = [];
-    let length = questions[testId].length;
-    safe.length = length;
+  const setInitialState = () => {
+    const answers = [];
+    const length = questions[testId].length;
+
     for (let i = 0; i < length; i++) {
-      safe[i] = {
+      answers.push({
+        id: questions[testId][i].id,
         type: questions[testId][i].type,
         question: questions[testId][i].question,
         answer: "",
-      };
+      });
     }
-    return safe;
+
+    return answers;
   };
 
-  const [answers, setAnswers] = useState(initialState);
+  const [answers, setAnswers] = useState<Answer[]>(setInitialState);
 
   const handleSubmit = () => {
     navigate(location.pathname + "/answers", { state: { answers } });
-    console.log("hey");
   };
-
-  const handleWriteAnswer = (event: any) => {
-    let index: number = 0;
-    const safe: any = answers;
-    questions[testId].map((question: any) => {
-      if (question.question === event.target.name) {
-        index = question.id - 1;
-      }
-    });
-    safe[index].answer = event.target.value;
-    setAnswers(safe);
+  const handleWriteAnswer = (event: ChangeEvent<HTMLInputElement>) => {
+    let index: number = questions[testId]
+      .map((obj: { question: string }) => obj.question)
+      .indexOf(event.target.name);
+    const answersHolder: Answer[] = [...answers];
+    answersHolder[index].answer = event.target.value;
+    setAnswers(answersHolder);
   };
-
   const handleOneChoiceAnswer = (event: any) => {
-    let index: number = 0;
-    const safe: any = answers;
-    questions[testId].map((question: any) => {
-      if (question.question === event.target.name) {
-        index = question.id - 1;
-      }
-    });
-    safe[index].answer = event.target.parentNode.innerText;
-    setAnswers(safe);
-    console.log(answers);
+    let index: number = questions[testId]
+      .map((obj: { question: string }) => obj.question)
+      .indexOf(event.target.name);
+    const answersHolder: Answer[] = [...answers];
+    answersHolder[index].answer = event.target.parentNode.innerText;
+    setAnswers(answersHolder);
   };
 
   const handleSeveralChoiceAnswer = (event: any) => {
-    let index: number = 0;
-    const safe: any = answers;
-    questions[testId].map((question: any) => {
-      if (question.question === event.target.name) {
-        index = question.id - 1;
-      }
-    });
+    let index: number = questions[testId]
+      .map((obj: { question: string }) => obj.question)
+      .indexOf(event.target.name);
+    const questionLength = questions[testId][index].answers.length;
+    const answersHolder: Answer[] = [...answers];
 
     const answerRememberer: any = [];
-    for (let i = 0, k = 0; i < questions[testId][index].answers.length; i++) {
+    for (let i = 0, k = 0; i < questionLength; i++) {
       if (
         event.target.parentNode.parentElement.childNodes[i].childNodes[0]
           .checked === true
@@ -81,9 +78,8 @@ const Test = () => {
         answerRememberer[k++] = questions[testId][index].answers[i];
       }
     }
-    safe[index].answer = answerRememberer;
-    setAnswers(safe);
-    console.log(answers);
+    answersHolder[index].answer = answerRememberer;
+    setAnswers(answersHolder);
   };
 
   return (
@@ -133,17 +129,17 @@ const Test = () => {
 const testChoice = (name?: string) => {
   switch (name) {
     case "react":
-      return TestTests.react.test;
+      return testTests.react.test;
     case "javaScript":
-      return TestTests.javaScript.test;
+      return testTests.javaScript.test;
     case "html":
-      return TestTests.html.test;
+      return testTests.html.test;
     case "css":
-      return TestTests.css.test;
+      return testTests.css.test;
     case "git":
-      return TestTests.git.test;
+      return testTests.git.test;
     default:
-      return TestTests.typeScript.test;
+      return testTests.typeScript.test;
   }
 };
 

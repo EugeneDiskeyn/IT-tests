@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   onClick?: (event: any) => void;
 }
+
 const Button = ({ children, isDisabled, type, onClick }: ButtonProps) => {
   return (
     <button

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useReducer } from "react";
+import React, { ChangeEvent, useReducer } from "react";
 
 import styles from "./SignUp.module.css";
 import Input from "../../components/Input/Input";
@@ -8,33 +8,39 @@ import adder from "../../utils/localStorage/adder";
 import routes from "../../services/routes";
 
 const SignUp = () => {
-  const initialState = { gmail: "", login: "", password: "", repeat: "" };
   const navigate = useNavigate();
+
+  const actionTypes = {
+    SET_GMAIL: "SET_GMAIL",
+    SET_LOGIN: "SET_LOGIN",
+    SET_PASSWORD: "SET_PASSWORD",
+    SET_REPEAT: "SET_REPEAT",
+  };
 
   const reducer = (state: any, action: any) => {
     switch (action.type) {
-      case "gmail": {
+      case actionTypes.SET_GMAIL: {
         return {
           ...state,
-          gmail: action.gmail,
+          gmail: action.value,
         };
       }
-      case "login": {
+      case actionTypes.SET_LOGIN: {
         return {
           ...state,
-          login: action.login,
+          login: action.value,
         };
       }
-      case "password": {
+      case actionTypes.SET_PASSWORD: {
         return {
           ...state,
-          password: action.password,
+          password: action.value,
         };
       }
-      case "repeat": {
+      case actionTypes.SET_REPEAT: {
         return {
           ...state,
-          repeat: action.repeat,
+          repeat: action.value,
         };
       }
       default: {
@@ -43,33 +49,20 @@ const SignUp = () => {
     }
   };
 
+  const initialState = { gmail: "", login: "", password: "", repeat: "" };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleGmailChange = (event: any) => {
+  const handleInputChange = (
+    type: string,
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
     dispatch({
-      type: "gmail",
-      gmail: event.target.value,
+      type,
+      value: event.target.value,
     });
   };
-  const handleLoginChange = (event: any) => {
-    dispatch({
-      type: "login",
-      login: event.target.value,
-    });
-  };
-  const handlePasswordChange = (event: any) => {
-    dispatch({
-      type: "password",
-      password: event.target.value,
-    });
-  };
-  const handleRepeatChange = (event: any) => {
-    dispatch({
-      type: "repeat",
-      repeat: event.target.value,
-    });
-  };
-  const userCheck = () => {
+
+  const handleSubmit = () => {
     let testUsers = {
       gmail: state.gmail,
       login: state.login,
@@ -78,35 +71,38 @@ const SignUp = () => {
     adder(testUsers);
     navigate(routes.authorisation);
   };
+
   return (
     <div className={styles.container}>
-      <form className={styles.signingUp} onSubmit={userCheck}>
-        <h1> РЕГИСТРАЦИЯ </h1>
+      <form className={styles.signingUp} onSubmit={handleSubmit}>
+        <h1>РЕГИСТРАЦИЯ</h1>
         <Input
           placeholder={"Электронная почта"}
           type={"email"}
           isRequired={true}
           pattern={"[a-z0-9]+@[a-z]+.[a-z]{2,3}"}
-          onChange={handleGmailChange}
+          onChange={(event) => handleInputChange(actionTypes.SET_GMAIL, event)}
         />
         <Input
           placeholder={"Логин"}
           type={"text"}
           isRequired={true}
           pattern={"[a-zA-Z0-9]{4,16}"}
-          onChange={handleLoginChange}
+          onChange={(event) => handleInputChange(actionTypes.SET_LOGIN, event)}
         />
         <Input
           placeholder={"Пароль"}
           type={"password"}
           isRequired={true}
-          onChange={handlePasswordChange}
+          onChange={(event) =>
+            handleInputChange(actionTypes.SET_PASSWORD, event)
+          }
         />
         <Input
           placeholder={"Повторите пароль"}
           type={"password"}
           isRequired={true}
-          onChange={handleRepeatChange}
+          onChange={(event) => handleInputChange(actionTypes.SET_REPEAT, event)}
         />
         <Link className={styles.back} to={routes.authorisation}>
           У Вас уже есть аккаунт? Авторизация

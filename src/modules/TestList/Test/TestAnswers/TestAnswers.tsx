@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { Answer } from "../../../../components/Answer/Answer";
+import { Answer } from "./Answer/Answer";
 
 import styles from "./TestAnswers.module.css";
-import answers from "../../../../utils/Tests/answers";
 import Button from "../../../../components/Button/Button";
 import routes from "../../../../services/routes";
+import testTests from "../../../../utils/Tests/testTests";
 
 const TestAnswers = () => {
   const params = useParams();
@@ -48,6 +48,7 @@ const TestAnswers = () => {
           if (flag) {
             rightAnswersNum++;
           }
+
           return (
             <Answer
               id={index}
@@ -77,17 +78,17 @@ const TestAnswers = () => {
 const rightAnswerChoice = (params: any) => {
   switch (params.names) {
     case "react":
-      return answers[0][params.testId - 1];
+      return testTests.react.answers[params.testId - 1];
     case "javaScript":
-      return answers[1][params.testId - 1];
+      return testTests.javaScript.answers[params.testId - 1];
     case "html":
-      return answers[2][params.testId - 1];
+      return testTests.html.answers[params.testId - 1];
     case "css":
-      return answers[3][params.testId - 1];
+      return testTests.css.answers[params.testId - 1];
     case "git":
-      return answers[4][params.testId - 1];
+      return testTests.git.answers[params.testId - 1];
     default:
-      return answers[5][params.testId - 1];
+      return testTests.typeScript.answers[params.testId - 1];
   }
 };
 

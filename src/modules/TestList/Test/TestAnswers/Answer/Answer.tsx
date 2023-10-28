@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Answer.module.css";
-import Button from "../Button/Button";
 
+import styles from "./Answer.module.css";
+//todo перенести answer.tsx, где он используется
 interface props {
   id: number;
   question: string;

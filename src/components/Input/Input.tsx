@@ -10,6 +10,7 @@ interface InputProps {
   value?: string;
   onChange?: (event: any) => void;
 }
+
 const Input = ({
   placeholder,
   type,
