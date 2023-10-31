@@ -69,16 +69,16 @@ const Test = () => {
     const questionLength = questions[testId][index].answers.length;
     const answersHolder: Answer[] = [...answers];
 
-    const answerRememberer: any = [];
+    const userAnswers: any = [];
     for (let i = 0, k = 0; i < questionLength; i++) {
       if (
         event.target.parentNode.parentElement.childNodes[i].childNodes[0]
           .checked === true
       ) {
-        answerRememberer[k++] = questions[testId][index].answers[i];
+        userAnswers[k++] = questions[testId][index].answers[i];
       }
     }
-    answersHolder[index].answer = answerRememberer;
+    answersHolder[index].answer = userAnswers;
     setAnswers(answersHolder);
   };
 
