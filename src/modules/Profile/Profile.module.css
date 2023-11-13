@@ -1,0 +1,41 @@
+.profile {
+    margin-left: 353px;
+    max-width: 758px;
+    padding: 32px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
+    background-color: #FFFFFF;
+}
+
+.generalInf {
+    display: flex;
+    margin-bottom: 16px;
+}
+.fox {
+    margin-right: 24px;
+}
+.logout {
+    margin-left: auto;
+}
+.generalInf p, h2 {
+    margin: 0;
+}
+.generalInf h2{
+    color: #594F77;
+}
+.generalInf p {
+    color: #7C7591;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: 373px 373px;
+    grid-column-gap: 15px;
+    grid-row-gap: 24px;
+}
+.inputs Input {
+    width: 283px;
+}
+.inputs img {
+    cursor: pointer;
+}

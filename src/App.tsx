@@ -1,11 +1,10 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import SignUp from "./modules/SignUp/SignUp";
 import SignIn from "./modules/SignIn/SignIn";
 import Catalog from "./modules/Catalog/Catalog";
 import NotFound from "./modules/NotFound/NotFound";
-import Statistics from "./modules/Statistics/Statistics";
 import FeedBack from "./modules/FeedBack/FeedBack";
 import Profile from "./modules/Profile/Profile";
 import TestList from "./modules/TestList/TestList";
@@ -14,27 +13,36 @@ import NavBar from "./modules/NavBar/NavBar";
 import Test from "./modules/TestList/Test/Test";
 import TestAnswers from "./modules/TestList/Test/TestAnswers/TestAnswers";
 
-const App = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={<Navigate to={routes.authorisation} replace />}
-      />
-      <Route path={routes.catalog} element={<Catalog />} />
-      <Route path={routes.statistics} element={<Statistics />} />
-      <Route path={routes.feedback} element={<FeedBack />} />
-      <Route path={routes.profile} element={<Profile />} />
-      <Route path={routes.authorisation} element={<SignIn />} />
-      <Route path={routes.registration} element={<SignUp />} />
-      <Route path={routes.test} element={<NavBar />}>
-        <Route path={routes.names} element={<TestList />} />
-        <Route path={routes.testId} element={<Test />} />
-        <Route path={routes.answers} element={<TestAnswers />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+const initialContext = {
+  gmail: "user@gmail.com",
+  login: "user",
+  password: "",
 };
 
-export default App;
+export const UserContext = createContext(initialContext);
+
+export const App = () => {
+  const [gmail, setGmail] = useState(initialContext);
+
+  return (
+    <UserContext.Provider value={gmail}>
+      <Routes>
+        <Route
+          path="/"
+          element={<Navigate to={routes.authorisation} replace />}
+        />
+        <Route path={routes.catalog} element={<Catalog />} />
+        <Route path={routes.feedback} element={<FeedBack />} />
+        <Route path={routes.profile} element={<Profile />} />
+        <Route path={routes.authorisation} element={<SignIn />} />
+        <Route path={routes.registration} element={<SignUp />} />
+        <Route path={routes.test} element={<NavBar />}>
+          <Route path={routes.names} element={<TestList />} />
+          <Route path={routes.testId} element={<Test />} />
+          <Route path={routes.answers} element={<TestAnswers />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </UserContext.Provider>
+  );
+};

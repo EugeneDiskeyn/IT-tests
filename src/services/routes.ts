@@ -1,6 +1,5 @@
 const routes = {
   catalog: "/catalog",
-  statistics: "/statistics",
   feedback: "/feedback",
   profile: "/profile",
   authorisation: "/authorisation",

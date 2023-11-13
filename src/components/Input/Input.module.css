@@ -7,11 +7,16 @@
 }
 .input {
     height: 41px;
+    width: 100%;
     background-color: #F3F1FF;
     color: #968ABD;
     border: none;
     border-radius: 30px;
     padding: 0 30px;
     font-size: 16px;
-    width: 100%;
+}
+
+.div {
+    display: flex;
+    width: 450px;
 }

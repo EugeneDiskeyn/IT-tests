@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../App";
 
 import styles from "./SignIn.module.css";
 import Button from "../../components/Button/Button";
@@ -8,6 +9,7 @@ import Users from "../../utils/Users";
 import routes from "../../services/routes";
 
 const SignIn = () => {
+  const { setGmailContext }: any = useContext(UserContext);
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
   const [gmail, setGmail] = useState<string>("");
@@ -18,6 +20,7 @@ const SignIn = () => {
     );
 
     if (finder !== undefined) {
+      setGmailContext(finder.gmail);
       navigate(routes.catalog);
     }
   };

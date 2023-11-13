@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Input.module.css";
 
+import Edit from "../../images/icons/Edit.svg";
+
 interface InputProps {
+  className?: string;
   placeholder: string;
   type: string;
   isDisabled?: boolean;
@@ -9,6 +12,8 @@ interface InputProps {
   pattern?: string;
   value?: string;
   onChange?: (event: any) => void;
+  onClick?: (event: any) => void;
+  isEditable?: boolean;
 }
 
 const Input = ({
@@ -19,18 +24,34 @@ const Input = ({
   pattern,
   value,
   onChange,
+  onClick,
+  isEditable,
 }: InputProps) => {
   return (
-    <input
-      pattern={pattern}
-      placeholder={placeholder}
-      type={type}
-      disabled={isDisabled}
-      className={styles.input}
-      required={isRequired}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={styles.div}>
+      <input
+        pattern={pattern}
+        placeholder={placeholder}
+        type={type}
+        disabled={isDisabled}
+        className={styles.input}
+        required={isRequired}
+        value={value}
+        onChange={onChange}
+      />
+      {(() => {
+        if (isEditable) {
+          return (
+            <img
+              className={styles.img}
+              src={Edit}
+              alt={"Edit Icon"}
+              onClick={onClick}
+            />
+          );
+        }
+      })()}
+    </div>
   );
 };
 
