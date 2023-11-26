@@ -1,26 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../App";
+import React, { useState } from "react";
 
 import styles from "./SignIn.module.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
-import Users from "../../utils/Users";
 import routes from "../../services/routes";
+import getter from "../../utils/localStorage/getter";
 
 const SignIn = () => {
-  const { setGmailContext }: any = useContext(UserContext);
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
   const [gmail, setGmail] = useState<string>("");
 
   const handleEnter = () => {
-    const finder = Users.find(
-      (element) => element.gmail === gmail && element.password === password
+    const users = getter();
+    const finder = users.find(
+      (element: any) => element.gmail === gmail && element.password === password
     );
-
     if (finder !== undefined) {
-      setGmailContext(finder.gmail);
       navigate(routes.catalog);
     }
   };
@@ -54,9 +51,7 @@ const SignIn = () => {
         <Link className={styles.link} to={routes.registration}>
           У вас нет аккаунта? Регистрация
         </Link>
-        <Button type={"submit"} onClick={handleEnter}>
-          ВХОД
-        </Button>
+        <Button onClick={handleEnter}>ВХОД</Button>
       </form>
     </div>
   );

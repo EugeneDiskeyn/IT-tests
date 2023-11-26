@@ -39,3 +39,14 @@
     margin-left: 13px;
     border-radius: 16px;
 }
+
+.redactType {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    margin-bottom: 16px;
+    color: #594F77;
+}
+.redactType img {
+    cursor: pointer;
+}
