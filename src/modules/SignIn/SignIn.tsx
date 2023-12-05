@@ -1,23 +1,26 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import styles from "./SignIn.module.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import routes from "../../services/routes";
 import getter from "../../utils/localStorage/getter";
+import { GmailContext } from "../../App";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
   const [gmail, setGmail] = useState<string>("");
 
+  const [gmailContext, setGmailContext] = useContext(GmailContext);
   const handleEnter = () => {
     const users = getter();
     const finder = users.find(
       (element: any) => element.gmail === gmail && element.password === password
     );
     if (finder !== undefined) {
+      setGmailContext(finder.gmail);
       navigate(routes.catalog);
     }
   };

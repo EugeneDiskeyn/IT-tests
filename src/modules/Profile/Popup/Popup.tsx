@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../../../components/Input/Input";
 import styles from "./Popup.module.css";
 import Button from "../../../components/Button/Button";
-import getter from "../../../utils/localStorage/getter";
 import ExitIcon from "../../../images/icons/Exit.svg";
+import getter from "../../../utils/localStorage/getter";
 
 interface Props {
   inputType: string;
+  indexOfUser: number;
   handleOnClick: () => void;
   handleValueChange: (event: any) => void;
   handleSubmit: () => void;
@@ -15,13 +16,18 @@ interface Props {
 
 export const Popup = ({
   inputType,
+  indexOfUser,
   handleOnClick,
   handleValueChange,
   handleSubmit,
   initialState,
 }: Props) => {
+  const users = getter();
+  if (initialState === "") {
+    initialState = users[indexOfUser][inputType];
+  }
   return (
-    <div className={styles.mask}>
+    <form className={styles.mask} onSubmit={handleSubmit}>
       <div className={styles.popup}>
         <div className={styles.redactType}>
           <h2>Редактировать {inputType === "login" ? "логин" : "пароль"}</h2>
@@ -33,12 +39,13 @@ export const Popup = ({
           onChange={handleValueChange}
           isRequired
           value={initialState}
+          pattern={inputType === "login" ? "[a-zA-Z0-9]{4,16}" : ""}
         />
         <div className={styles.buttons}>
           <Button onClick={handleOnClick}>Отменить</Button>
-          <Button onClick={handleSubmit}>Сохранить</Button>
+          <Button type={"submit"}>Сохранить</Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };

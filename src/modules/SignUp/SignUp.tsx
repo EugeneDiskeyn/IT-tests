@@ -63,6 +63,9 @@ const SignUp = () => {
   };
 
   const handleSubmit = () => {
+    if (localStorage["user"] === undefined || localStorage["user"] === "") {
+      localStorage.setItem("user", "[]");
+    }
     let testUsers = {
       gmail: state.gmail,
       login: state.login,
