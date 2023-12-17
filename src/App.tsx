@@ -13,30 +13,24 @@ import NavBar from "./modules/NavBar/NavBar";
 import Test from "./modules/TestList/Test/Test";
 import TestAnswers from "./modules/TestList/Test/TestAnswers/TestAnswers";
 
-export const MailContext: any = createContext("user@gmail.com");
-
 export const App = () => {
-  const [mailContext, setMailContext] = useState("user@gmail.com");
-
   return (
-    <MailContext.Provider value={[mailContext, setMailContext]}>
-      <Routes>
-        <Route
-          path="/"
-          element={<Navigate to={routes.authorisation} replace />}
-        />
-        <Route path={routes.catalog} element={<Catalog />} />
-        <Route path={routes.feedback} element={<FeedBack />} />
-        <Route path={routes.profile} element={<Profile />} />
-        <Route path={routes.authorisation} element={<SignIn />} />
-        <Route path={routes.registration} element={<SignUp />} />
-        <Route path={routes.test} element={<NavBar />}>
-          <Route path={routes.names} element={<TestList />} />
-          <Route path={routes.testId} element={<Test />} />
-          <Route path={routes.answers} element={<TestAnswers />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </MailContext.Provider>
+    <Routes>
+      <Route
+        path="/"
+        element={<Navigate to={routes.authorisation} replace />}
+      />
+      <Route path={routes.catalog} element={<Catalog />} />
+      <Route path={routes.feedback} element={<FeedBack />} />
+      <Route path={routes.profile} element={<Profile />} />
+      <Route path={routes.authorisation} element={<SignIn />} />
+      <Route path={routes.registration} element={<SignUp />} />
+      <Route path={routes.test} element={<NavBar />}>
+        <Route path={routes.names} element={<TestList />} />
+        <Route path={routes.testId} element={<Test />} />
+        <Route path={routes.answers} element={<TestAnswers />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };

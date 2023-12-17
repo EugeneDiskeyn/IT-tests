@@ -1,16 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 import styles from "./Profile.module.css";
 import NavBar from "../NavBar/NavBar";
 import Input from "../../components/Input/Input";
 import getter from "../../utils/localStorage/getter";
 import { Popup } from "./Popup/Popup";
-import { MailContext } from "../../App";
 import Fox from "../../images/icons/Fox.svg";
 import Logout from "../../images/icons/Logout.svg";
 
 const Profile = () => {
-  const [mailContext, setMailContext] = useContext(MailContext);
   const [inputType, setInputType] = useState("");
   const [isPopupHidden, setIsPopupHidden] = useState(true);
   const [inputValue, setInputValue] = useState("");
@@ -18,7 +16,7 @@ const Profile = () => {
 
   const indexOfUser = users
     .map((user: { gmail: string }) => user.gmail)
-    .indexOf(mailContext);
+    .indexOf(sessionStorage.getItem("currentUser"));
 
   const handleClickInput = (event: any) => {
     setIsPopupHidden(false);
