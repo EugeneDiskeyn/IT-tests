@@ -13,13 +13,13 @@ import NavBar from "./modules/NavBar/NavBar";
 import Test from "./modules/TestList/Test/Test";
 import TestAnswers from "./modules/TestList/Test/TestAnswers/TestAnswers";
 
-export const GmailContext: any = createContext("user@gmail.com");
+export const MailContext: any = createContext("user@gmail.com");
 
 export const App = () => {
-  const [gmailContext, setGmailContext] = useState("user@gmail.com");
+  const [mailContext, setMailContext] = useState("user@gmail.com");
 
   return (
-    <GmailContext.Provider value={[gmailContext, setGmailContext]}>
+    <MailContext.Provider value={[mailContext, setMailContext]}>
       <Routes>
         <Route
           path="/"
@@ -37,6 +37,6 @@ export const App = () => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </GmailContext.Provider>
+    </MailContext.Provider>
   );
 };

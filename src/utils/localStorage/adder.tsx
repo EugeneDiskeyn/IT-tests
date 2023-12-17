@@ -3,7 +3,6 @@ const adder = (newUser: any) => {
   if (typeof usersStr === "string") {
     let users = JSON.parse(usersStr);
     for (let i = 0; i < users.length; i++) {
-      console.log(users[i].gmail);
       if (
         newUser.gmail === users[i].gmail ||
         newUser.login === users[i].login

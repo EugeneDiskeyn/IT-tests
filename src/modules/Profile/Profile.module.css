@@ -1,5 +1,8 @@
+.toCentre {
+    display: flex;
+    justify-content: center;
+}
 .profile {
-    margin-left: 353px;
     max-width: 758px;
     padding: 32px;
     border-radius: 30px;

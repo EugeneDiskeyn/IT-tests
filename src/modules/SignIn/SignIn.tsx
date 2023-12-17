@@ -6,21 +6,22 @@ import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import routes from "../../services/routes";
 import getter from "../../utils/localStorage/getter";
-import { GmailContext } from "../../App";
+import { MailContext } from "../../App";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
-  const [gmail, setGmail] = useState<string>("");
+  const [mail, setMail] = useState<string>("");
 
-  const [gmailContext, setGmailContext] = useContext(GmailContext);
+  const [mailContext, setMailContext] = useContext(MailContext);
+
   const handleEnter = () => {
     const users = getter();
     const finder = users.find(
-      (element: any) => element.gmail === gmail && element.password === password
+      (element: any) => element.gmail === mail && element.password === password
     );
     if (finder !== undefined) {
-      setGmailContext(finder.gmail);
+      setMailContext(finder.gmail);
       navigate(routes.catalog);
     }
   };
@@ -30,18 +31,22 @@ const SignIn = () => {
   };
 
   const handleEmailChange = (event: any) => {
-    setGmail(event.target.value);
+    setMail(event.target.value);
   };
 
   return (
     <div className={styles.container}>
-      <form className={styles.authorization} autoComplete={"on"}>
+      <form
+        className={styles.authorization}
+        autoComplete={"on"}
+        onSubmit={handleEnter}
+      >
         <h1>АВТОРИЗАЦИЯ</h1>
         <Input
           placeholder={"Электронная почта"}
-          type={"email"}
+          type={"mail"}
           isRequired={true}
-          value={gmail}
+          value={mail}
           onChange={handleEmailChange}
         />
         <Input
@@ -54,7 +59,7 @@ const SignIn = () => {
         <Link className={styles.link} to={routes.registration}>
           У вас нет аккаунта? Регистрация
         </Link>
-        <Button onClick={handleEnter}>ВХОД</Button>
+        <Button type={"submit"}>ВХОД</Button>
       </form>
     </div>
   );
