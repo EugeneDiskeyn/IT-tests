@@ -72,56 +72,54 @@ const css = [
 
 const cssAnswers = [
   [
-    [
-      {
-        id: 23,
-        type: "severalChoice",
-        question:
-          "Каким образом можно задать отступы у блока 20px сверху и 10px снизу?",
-        rightAnswer: [
-          "padding-top: 20px; padding-bottom: 10px;",
-          "padding: 20px 10px 0;",
-        ],
-      },
-      {
-        id: 24,
-        type: "oneChoice",
-        question:
-          "С помощью какого псевдокласса задают эффект при наведении мышкой?",
-        rightAnswer: "a:visited",
-      },
-      {
-        id: 25,
-        type: "oneChoice",
-        question:
-          "С помощью какого селектора можно получить прямого потомка элемента с классом .main_menu?",
-        rightAnswer: ".main_menu a",
-      },
-    ],
-    [
-      {
-        id: 26,
-        type: "oneChoice",
-        question: "С помощью свойства line-height задают:",
-        rightAnswer: "Высоту строки",
-      },
-      {
-        id: 27,
-        type: "severalChoice",
-        question:
-          "Выберите корректные варианты связывания label и input при вёрстке форм",
-        rightAnswer: [
-          "Назначаем <input> и <lable> одинаковые id",
-          "У <label> указываем атрибут for, который равен атрибуту id у тэга <input>",
-        ],
-      },
-      {
-        id: 28,
-        type: "oneChoice",
-        question: "Современный CSS(укажите верный вариант)",
-        rightAnswer: "Позволяет использовать переменные",
-      },
-    ],
+    {
+      id: 23,
+      type: "severalChoice",
+      question:
+        "Каким образом можно задать отступы у блока 20px сверху и 10px снизу?",
+      rightAnswer: [
+        "padding-top: 20px; padding-bottom: 10px;",
+        "padding: 20px 10px 0;",
+      ],
+    },
+    {
+      id: 24,
+      type: "oneChoice",
+      question:
+        "С помощью какого псевдокласса задают эффект при наведении мышкой?",
+      rightAnswer: "a:visited",
+    },
+    {
+      id: 25,
+      type: "oneChoice",
+      question:
+        "С помощью какого селектора можно получить прямого потомка элемента с классом .main_menu?",
+      rightAnswer: ".main_menu a",
+    },
+  ],
+  [
+    {
+      id: 26,
+      type: "oneChoice",
+      question: "С помощью свойства line-height задают:",
+      rightAnswer: "Высоту строки",
+    },
+    {
+      id: 27,
+      type: "severalChoice",
+      question:
+        "Выберите корректные варианты связывания label и input при вёрстке форм",
+      rightAnswer: [
+        "Назначаем <input> и <lable> одинаковые id",
+        "У <label> указываем атрибут for, который равен атрибуту id у тэга <input>",
+      ],
+    },
+    {
+      id: 28,
+      type: "oneChoice",
+      question: "Современный CSS(укажите верный вариант)",
+      rightAnswer: "Позволяет использовать переменные",
+    },
   ],
 ];
 

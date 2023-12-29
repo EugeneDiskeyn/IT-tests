@@ -21,19 +21,21 @@ const TestList = () => {
           </Link>
           <p>{names?.toUpperCase()}</p>
         </div>
-        {filteredTests.map((test, index) => {
-          return (
-            <TestCard
-              id={index}
-              name={test.name}
-              difficulty={test.difficulty}
-              amount={test.amount}
-              description={test.description}
-              skills={test.skills}
-              key={index}
-            />
-          );
-        })}
+        {filteredTests.map(
+          ({ name, difficulty, amount, description, skills }, index) => {
+            return (
+              <TestCard
+                id={index}
+                name={name}
+                difficulty={difficulty}
+                amount={amount}
+                description={description}
+                skills={skills}
+                key={index}
+              />
+            );
+          }
+        )}
       </main>
     </div>
   );

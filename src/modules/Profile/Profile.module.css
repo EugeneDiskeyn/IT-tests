@@ -42,3 +42,7 @@
 .inputs img {
     cursor: pointer;
 }
+
+.popup {
+    display: flex;
+}

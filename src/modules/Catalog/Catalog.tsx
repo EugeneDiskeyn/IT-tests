@@ -17,25 +17,22 @@ const Catalog = () => {
       setCategory(event.target.id);
     }
   };
-
   return (
     <>
       <NavBar />
       <div className={styles.div}>
-        <div>
-          <ul onClick={handleCategory} className={styles.ul}>
-            <li id={"all"} className={styles.active}>
-              Все категории
-            </li>
-            <li id={"new"} className={styles.inactive}>
-              Новые категории
-            </li>
-            <li id={"popular"} className={styles.inactive}>
-              Популярные категории
-            </li>
-          </ul>
-          <Categories category={category} />
-        </div>
+        <ul onClick={handleCategory} className={styles.ul}>
+          <li key={1} id={"all"} className={styles.active}>
+            Все категории
+          </li>
+          <li key={2} id={"new"} className={styles.inactive}>
+            Новые категории
+          </li>
+          <li key={3} id={"popular"} className={styles.inactive}>
+            Популярные категории
+          </li>
+        </ul>
+        <Categories category={category} />
       </div>
     </>
   );

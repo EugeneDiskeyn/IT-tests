@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styles from "./Input.module.css";
 
 import Edit from "../../images/icons/Edit.svg";
 
 interface InputProps {
+  name?: string;
   className?: string;
   placeholder: string;
   type: string;
@@ -11,8 +12,8 @@ interface InputProps {
   isRequired?: boolean;
   pattern?: string;
   value?: string;
-  onChange?: (event: any) => void;
-  onClick?: (event: any) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   isEditable?: boolean;
 }
 

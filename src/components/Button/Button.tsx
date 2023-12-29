@@ -5,10 +5,15 @@ interface ButtonProps {
   children: React.ReactNode;
   isDisabled?: boolean;
   type?: "button" | "submit" | "reset";
-  onClick?: (event: any) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({ children, isDisabled, type, onClick }: ButtonProps) => {
+const Button = ({
+  children,
+  isDisabled,
+  type = "button",
+  onClick,
+}: ButtonProps) => {
   return (
     <button
       type={type}

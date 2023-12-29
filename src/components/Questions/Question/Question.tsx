@@ -1,15 +1,16 @@
 import React from "react";
 
-import styles from "./SeveralChoiceType.module.css";
+import styles from "./Question.module.css";
 
 interface props {
   id: number;
   question: string;
   answers: any;
+  type: string;
   onClick?: (event: any) => void;
 }
 
-const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
+const Question = ({ id, question, answers, onClick, type }: props) => {
   return (
     <div className={styles.severalChoiceType}>
       <h1>
@@ -18,12 +19,7 @@ const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
       <div>
         {answers.map((answer: any, index: number) => (
           <label key={index}>
-            <input
-              id={index.toString()}
-              type={"checkbox"}
-              name={question}
-              onClick={onClick}
-            />
+            <input type={type} name={question} onClick={onClick} />
             {answer}
           </label>
         ))}
@@ -32,4 +28,4 @@ const SeveralChoiceType = ({ id, question, answers, onClick }: props) => {
   );
 };
 
-export default SeveralChoiceType;
+export default Question;

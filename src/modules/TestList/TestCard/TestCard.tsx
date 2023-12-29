@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import styles from "./TestCard.module.css";
 import penguin from "../../../images/icons/Avatars.svg";
+
 interface TestProps {
   id: number;
   name: string;
@@ -24,7 +25,7 @@ const TestCard = ({
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(location.pathname + "/" + (id + 1), { state: { name } });
+    navigate(`${location.pathname}/${id + 1}`, { state: { name } });
   };
 
   return (

@@ -14,16 +14,9 @@ const Answer = ({ id, question, userAnswer, answer, isAnswerRight }: props) => {
   const styleObj = {
     height: "26px",
     width: "77px",
-    backgroundColor: "",
-    color: "",
+    backgroundColor: isAnswerRight ? "#DDFFD8" : "#FFD8D8",
+    color: isAnswerRight ? "#63925B" : "#AA5550",
   };
-  if (isAnswerRight) {
-    styleObj.backgroundColor = "#DDFFD8";
-    styleObj.color = "#63925B";
-  } else {
-    styleObj.backgroundColor = "#FFD8D8";
-    styleObj.color = "#AA5550";
-  }
 
   return (
     <div className={styles.answer}>
@@ -33,11 +26,7 @@ const Answer = ({ id, question, userAnswer, answer, isAnswerRight }: props) => {
         </h1>
         <div style={styleObj}>
           {(() => {
-            if (isAnswerRight) {
-              return "Верно";
-            } else {
-              return "Неверно";
-            }
+            return isAnswerRight ? "Верно" : "Неверно";
           })()}
         </div>
       </div>

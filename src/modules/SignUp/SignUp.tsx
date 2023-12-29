@@ -62,17 +62,20 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     if (localStorage["user"] === undefined || localStorage["user"] === "") {
       localStorage.setItem("user", "[]");
     }
-    let testUsers = {
-      gmail: state.gmail,
-      login: state.login,
-      password: state.password,
-    };
-    adder(testUsers);
-    navigate(routes.authorisation);
+    if (state.password === state.repeat) {
+      const testUsers = {
+        gmail: state.gmail,
+        login: state.login,
+        password: state.password,
+      };
+      adder(testUsers);
+      navigate(routes.authorisation);
+    }
   };
 
   return (

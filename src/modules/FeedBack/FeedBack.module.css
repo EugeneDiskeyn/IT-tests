@@ -3,6 +3,7 @@
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
+    min-height: 80vh;
 }
 
 .feedback {
@@ -11,7 +12,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    min-width: 400px;
     padding: 19px 75px 30px 75px;
     border-radius: 30px;
     box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);

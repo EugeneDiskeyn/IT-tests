@@ -2,13 +2,12 @@ import React, { ChangeEvent, useState } from "react";
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 
 import styles from "./Test.module.css";
-import WriteType from "../../../components/Questions/WriteType/WriteType";
-import OneChoiceType from "../../../components/Questions/OneChoiceType/OneChoiceType";
-import SeveralChoiceType from "../../../components/Questions/SeveralChoiceType/SeveralChoiceType";
+import WriteQuestion from "../../../components/Questions/WriteQuestion/WriteQuestion";
 import Button from "../../../components/Button/Button";
 import arrow from "../../../images/icons/arrow.svg";
 import routes from "../../../services/routes";
 import testTests from "../../../utils/Tests/testTests";
+import Question from "../../../components/Questions/Question/Question";
 
 interface Answer {
   id: number;
@@ -23,16 +22,15 @@ const Test = () => {
   const params = useParams();
   const testId = Number(params.testId) - 1;
   const questions = testChoice(params.names);
-
+  const rightAnswers = rightAnswerChoice(params);
   const setInitialState = () => {
     const answers = [];
-    const length = questions[testId].length;
 
-    for (let i = 0; i < length; i++) {
+    for (let question of questions[testId]) {
       answers.push({
-        id: questions[testId][i].id,
-        type: questions[testId][i].type,
-        question: questions[testId][i].question,
+        id: question.id,
+        type: question.type,
+        question: question.question,
         answer: "",
       });
     }
@@ -42,19 +40,27 @@ const Test = () => {
 
   const [answers, setAnswers] = useState<Answer[]>(setInitialState);
 
-  const handleSubmit = () => {
-    navigate(location.pathname + "/answers", { state: { answers } });
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const answersTab = getIsAnswerRight(rightAnswers, answers);
+
+    navigate(location.pathname + "/answers", {
+      state: { answers, answersTab, rightAnswers },
+    });
   };
-  const handleWriteAnswer = (event: ChangeEvent<HTMLInputElement>) => {
-    let index: number = questions[testId]
+
+  const handleWriteAnswer = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const index: number = questions[testId]
       .map((obj: { question: string }) => obj.question)
       .indexOf(event.target.name);
     const answersHolder: Answer[] = [...answers];
     answersHolder[index].answer = event.target.value;
     setAnswers(answersHolder);
   };
+
   const handleOneChoiceAnswer = (event: any) => {
-    let index: number = questions[testId]
+    const index: number = questions[testId]
       .map((obj: { question: string }) => obj.question)
       .indexOf(event.target.name);
     const answersHolder: Answer[] = [...answers];
@@ -63,7 +69,7 @@ const Test = () => {
   };
 
   const handleSeveralChoiceAnswer = (event: any) => {
-    let index: number = questions[testId]
+    const index: number = questions[testId]
       .map((obj: { question: string }) => obj.question)
       .indexOf(event.target.name);
     const questionLength = questions[testId][index].answers.length;
@@ -81,7 +87,6 @@ const Test = () => {
     answersHolder[index].answer = userAnswers;
     setAnswers(answersHolder);
   };
-
   return (
     <div className={styles.background}>
       <form className={styles.questionArea} onSubmit={handleSubmit}>
@@ -94,30 +99,37 @@ const Test = () => {
         {questions[testId].map((question: any, index: number) => {
           if (question.type === "write") {
             return (
-              <WriteType
+              <WriteQuestion
+                key={index + 1}
                 id={index + 1}
                 question={question.question}
                 onChange={handleWriteAnswer}
               />
             );
-          } else if (question.type === "oneChoice") {
-            return (
-              <OneChoiceType
-                id={index + 1}
-                question={question.question}
-                answers={question.answers}
-                onClick={handleOneChoiceAnswer}
-              />
-            );
           } else {
-            return (
-              <SeveralChoiceType
-                id={index + 1}
-                question={question.question}
-                answers={question.answers}
-                onClick={handleSeveralChoiceAnswer}
-              />
-            );
+            if (question.type === "oneChoice") {
+              return (
+                <Question
+                  key={index + 1}
+                  id={index + 1}
+                  question={question.question}
+                  answers={question.answers}
+                  onClick={handleOneChoiceAnswer}
+                  type={"radio"}
+                />
+              );
+            } else {
+              return (
+                <Question
+                  key={index + 1}
+                  id={index + 1}
+                  question={question.question}
+                  answers={question.answers}
+                  onClick={handleSeveralChoiceAnswer}
+                  type={"checkbox"}
+                />
+              );
+            }
           }
         })}
         <Button type={"submit"}>Завершить тест</Button>
@@ -138,9 +150,54 @@ const testChoice = (name?: string) => {
       return testTests.css.test;
     case "git":
       return testTests.git.test;
-    default:
+    case "typeScript":
       return testTests.typeScript.test;
   }
+};
+
+const rightAnswerChoice = (params: any) => {
+  switch (params.names) {
+    case "react":
+      return testTests.react.answers[params.testId - 1];
+    case "javaScript":
+      return testTests.javaScript.answers[params.testId - 1];
+    case "html":
+      return testTests.html.answers[params.testId - 1];
+    case "css":
+      return testTests.css.answers[params.testId - 1];
+    case "git":
+      return testTests.git.answers[params.testId - 1];
+    case "typeScript":
+      return testTests.typeScript.answers[params.testId - 1];
+  }
+};
+
+const getIsAnswerRight = (rightAnswers: any, userAnswers: any) => {
+  let answersTab: any = [];
+  userAnswers.map((userAnswer: any, index: number) => {
+    if (userAnswer.type !== "severalChoice") {
+      if (rightAnswers[index].rightAnswer !== userAnswer.answer) {
+        answersTab.push(false);
+      } else {
+        answersTab.push(true);
+      }
+    } else {
+      if (rightAnswers[index].rightAnswer.length !== userAnswer.answer.length) {
+        answersTab.push(false);
+      } else {
+        const len = rightAnswers[index].rightAnswer.length;
+        let flag = true;
+        for (let i = 0; i < len; i++) {
+          if (rightAnswers[index].rightAnswer[i] !== userAnswer.answer[i]) {
+            flag = false;
+            break;
+          }
+        }
+        answersTab.push(flag);
+      }
+    }
+  });
+  return answersTab;
 };
 
 export default Test;

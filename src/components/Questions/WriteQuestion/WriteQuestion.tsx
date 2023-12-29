@@ -1,14 +1,14 @@
 import React from "react";
 
-import styles from "./WriteType.module.css";
+import styles from "./WriteQuestion.module.css";
 
 interface Props {
   id: number;
   question: string;
-  onChange?: (event: any) => void;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const WriteType = ({ id, question, onChange }: Props) => {
+const WriteQuestion = ({ id, question, onChange }: Props) => {
   return (
     <div className={styles.writeType}>
       <h1>
@@ -19,4 +19,4 @@ const WriteType = ({ id, question, onChange }: Props) => {
   );
 };
 
-export default WriteType;
+export default WriteQuestion;

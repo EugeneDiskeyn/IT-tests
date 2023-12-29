@@ -12,7 +12,8 @@ const SignIn = () => {
   const [password, setPassword] = useState<string>("");
   const [mail, setMail] = useState<string>("");
 
-  const handleEnter = () => {
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     const users = getter();
     const finder = users.find(
       (element: any) => element.gmail === mail && element.password === password
@@ -23,11 +24,11 @@ const SignIn = () => {
     }
   };
 
-  const handlePasswordChange = (event: any) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const handleEmailChange = (event: any) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMail(event.target.value);
   };
 
@@ -36,7 +37,7 @@ const SignIn = () => {
       <form
         className={styles.authorization}
         autoComplete={"on"}
-        onSubmit={handleEnter}
+        onSubmit={handleSubmit}
       >
         <h1>АВТОРИЗАЦИЯ</h1>
         <Input

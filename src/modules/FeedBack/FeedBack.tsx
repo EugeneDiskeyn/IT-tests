@@ -18,11 +18,10 @@ const FeedBack = () => {
   const gmailSetter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGmail(event.target.value);
   };
-
-  const checker = (event: any) => {
+  const handleSubmit = () => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].gmail === gmail && users[i].login === login) {
-        event.target.form.submit();
+        console.log("Feedback sent");
       }
     }
   };
@@ -30,7 +29,7 @@ const FeedBack = () => {
     <>
       <NavBar />
       <div className={styles.form_img}>
-        <form className={styles.feedback}>
+        <form className={styles.feedback} onSubmit={handleSubmit}>
           <h1>Мы на связи</h1>
           <Input
             placeholder={"Логин"}
@@ -57,7 +56,7 @@ const FeedBack = () => {
             <option>Option4</option>
           </select>
           <textarea className={styles.feedarea} />
-          <Button onClick={checker}>Отправить</Button>
+          <Button type={"submit"}>Отправить</Button>
         </form>
         <img src={assistant} alt={"virtual assistant"} />
       </div>

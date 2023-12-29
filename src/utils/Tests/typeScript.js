@@ -57,45 +57,43 @@ const typeScript = [
 
 const typeScriptAnswers = [
   [
-    [
-      {
-        id: 35,
-        type: "oneChoice",
-        question:
-          "Вы можете отключить неявное присвоение типа переменной, включив опцию компилятора",
-        rightAnswer: "noAutoType",
-      },
-      {
-        id: 36,
-        type: "oneChoice",
-        question:
-          "Вы можете включить учет типов 'undefined' и 'null', включив свойство компилятора",
-        rightAnswer: "strictChecksRequired",
-      },
-      {
-        id: 37,
-        type: "oneChoice",
-        question:
-          "______ аналогично ''любому'', но является более безопасной альтернативой, если вы не уверены в типе",
-        rightAnswer: "similar",
-      },
-    ],
-    [
-      {
-        id: 38,
-        type: "oneChoice",
-        question:
-          "Что делает модификатор доступа 'readonly' для присвоения переменной массива, " +
-          "например: `const codeNames: readonly string[] = ['Coding', 'God']`?",
-        rightAnswer: "Заставляет вас читать его для более чистого кода",
-      },
-      {
-        id: 39,
-        type: "oneChoice",
-        question: "_____ - это возвращаемый тип, когда ничего не возвращается",
-        rightAnswer: "any[]",
-      },
-    ],
+    {
+      id: 35,
+      type: "oneChoice",
+      question:
+        "Вы можете отключить неявное присвоение типа переменной, включив опцию компилятора",
+      rightAnswer: "noAutoType",
+    },
+    {
+      id: 36,
+      type: "oneChoice",
+      question:
+        "Вы можете включить учет типов 'undefined' и 'null', включив свойство компилятора",
+      rightAnswer: "strictChecksRequired",
+    },
+    {
+      id: 37,
+      type: "oneChoice",
+      question:
+        "______ аналогично ''любому'', но является более безопасной альтернативой, если вы не уверены в типе",
+      rightAnswer: "similar",
+    },
+  ],
+  [
+    {
+      id: 38,
+      type: "oneChoice",
+      question:
+        "Что делает модификатор доступа 'readonly' для присвоения переменной массива, " +
+        "например: `const codeNames: readonly string[] = ['Coding', 'God']`?",
+      rightAnswer: "Заставляет вас читать его для более чистого кода",
+    },
+    {
+      id: 39,
+      type: "oneChoice",
+      question: "_____ - это возвращаемый тип, когда ничего не возвращается",
+      rightAnswer: "any[]",
+    },
   ],
 ];
 

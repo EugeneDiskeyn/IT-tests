@@ -4,9 +4,19 @@
     margin-top: 50px;
 }
 
-.testName {
+.formTop {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 57px;
+}
+
+.testName {
     font-size: 30px;
+}
+
+.result {
+    font-size: 2em;
+    color: #594F77;
 }
 
 .answersForm {
@@ -20,10 +30,4 @@
     margin-left: 300px;
     border-radius: 16px;
     box-shadow: 4px 4px 26px rgba(115, 92, 255, 0.35);
-}
-
-.result {
-    position: absolute;
-    top: 151px;
-    right: 380px;
 }

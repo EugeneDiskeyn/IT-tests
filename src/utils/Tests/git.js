@@ -77,50 +77,48 @@ const git = [
 
 const gitAnswers = [
   [
-    [
-      {
-        id: 29,
-        type: "oneChoice",
-        question: "Что такое GitHub?",
-        rightAnswer: "Программа для работы с Git",
-      },
-      {
-        id: 30,
-        type: "oneChoice",
-        question: "Что такое репозиторий Git?",
-        rightAnswer: "Любая директория/папка в моей ОС",
-      },
-      {
-        id: 31,
-        type: "oneChoice",
-        question: "Что делает команда git status?",
-        rightAnswer:
-          "Показывает имя и email нашего пользователя, а также является ли он авторизованным в системе GitHub или нет",
-      },
-    ],
-    [
-      {
-        id: 32,
-        type: "oneChoice",
-        question: "Что делает команда git add?",
-        rightAnswer:
-          "Создает файл с указанным именем и сразу добавляет его в Git",
-      },
-      {
-        id: 33,
-        type: "oneChoice",
-        question:
-          "Что означает статус файла untracked в выводе команды git status?",
-        rightAnswer: "Что система Git не отслеживает этот файл",
-      },
-      {
-        id: 34,
-        type: "oneChoice",
-        question: "Что означает статус файла new в выводе команды git status?",
-        rightAnswer:
-          "Что файл только что был создан и еще не отслеживается системой Git",
-      },
-    ],
+    {
+      id: 29,
+      type: "oneChoice",
+      question: "Что такое GitHub?",
+      rightAnswer: "Программа для работы с Git",
+    },
+    {
+      id: 30,
+      type: "oneChoice",
+      question: "Что такое репозиторий Git?",
+      rightAnswer: "Любая директория/папка в моей ОС",
+    },
+    {
+      id: 31,
+      type: "oneChoice",
+      question: "Что делает команда git status?",
+      rightAnswer:
+        "Показывает имя и email нашего пользователя, а также является ли он авторизованным в системе GitHub или нет",
+    },
+  ],
+  [
+    {
+      id: 32,
+      type: "oneChoice",
+      question: "Что делает команда git add?",
+      rightAnswer:
+        "Создает файл с указанным именем и сразу добавляет его в Git",
+    },
+    {
+      id: 33,
+      type: "oneChoice",
+      question:
+        "Что означает статус файла untracked в выводе команды git status?",
+      rightAnswer: "Что система Git не отслеживает этот файл",
+    },
+    {
+      id: 34,
+      type: "oneChoice",
+      question: "Что означает статус файла new в выводе команды git status?",
+      rightAnswer:
+        "Что файл только что был создан и еще не отслеживается системой Git",
+    },
   ],
 ];
 

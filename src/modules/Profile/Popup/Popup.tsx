@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Input from "../../../components/Input/Input";
 import styles from "./Popup.module.css";
 import Button from "../../../components/Button/Button";
@@ -9,8 +10,8 @@ interface Props {
   inputType: string;
   indexOfUser: number;
   handleOnClick: () => void;
-  handleValueChange: (event: any) => void;
-  handleSubmit: () => void;
+  handleValueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (event: React.FormEvent) => void;
   initialState: string;
 }
 
@@ -23,9 +24,7 @@ export const Popup = ({
   initialState,
 }: Props) => {
   const users = getter();
-  if (initialState === "") {
-    initialState = users[indexOfUser][inputType];
-  }
+  const inputValue = initialState || users[indexOfUser][inputType];
   return (
     <form className={styles.mask} onSubmit={handleSubmit}>
       <div className={styles.popup}>
@@ -38,8 +37,8 @@ export const Popup = ({
           type={"text"}
           onChange={handleValueChange}
           isRequired
-          value={initialState}
-          pattern={inputType === "login" ? "[a-zA-Z0-9]{4,16}" : ""}
+          value={inputValue}
+          pattern={inputType === "login" ? "[a-zA-Z0-9]{4,16}" : "[a-zA-Z0-9]"}
         />
         <div className={styles.buttons}>
           <Button onClick={handleOnClick}>Отменить</Button>

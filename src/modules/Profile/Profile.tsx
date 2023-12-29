@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Profile.module.css";
 import NavBar from "../NavBar/NavBar";
@@ -7,16 +8,18 @@ import getter from "../../utils/localStorage/getter";
 import { Popup } from "./Popup/Popup";
 import Fox from "../../images/icons/Fox.svg";
 import Logout from "../../images/icons/Logout.svg";
+import routes from "../../services/routes";
 
 const Profile = () => {
   const [inputType, setInputType] = useState("");
   const [isPopupHidden, setIsPopupHidden] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const users = getter();
+  const currentUser = sessionStorage.getItem("currentUser");
 
   const indexOfUser = users
     .map((user: { gmail: string }) => user.gmail)
-    .indexOf(sessionStorage.getItem("currentUser"));
+    .indexOf(currentUser);
 
   const handleClickInput = (event: any) => {
     setIsPopupHidden(false);
@@ -27,30 +30,33 @@ const Profile = () => {
     setInputValue(event.target.value);
   };
 
-  const handleOnClick = () => {
+  const handlePopupClose = () => {
     setInputValue("");
     setIsPopupHidden(true);
   };
 
-  const handleSubmit = () => {
-    const usersCopy = users;
-    usersCopy[indexOfUser][inputType] = inputValue;
-    localStorage.setItem("user", JSON.stringify(usersCopy));
-    handleOnClick();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const f_users = users;
+    f_users[indexOfUser][inputType] = inputValue;
+    localStorage.setItem("user", JSON.stringify(f_users));
+    handlePopupClose();
   };
 
   return (
-    <div>
+    <>
       <NavBar />
       <div className={styles.toCentre}>
         <div className={styles.profile}>
           <div className={styles.generalInf}>
             <img className={styles.fox} src={Fox} alt={"Fox icon"} />
             <div>
-              <h2>James Bond</h2>
-              <p>Gmail</p>
+              <h2>{users[indexOfUser].login}</h2>
+              <p>{users[indexOfUser].gmail}</p>
             </div>
-            <img className={styles.logout} src={Logout} alt={"Exit icon"} />
+            <Link to={routes.authorisation} className={styles.logout}>
+              <img src={Logout} alt={"Exit icon"} />
+            </Link>
           </div>
           <div className={styles.inputs}>
             <Input
@@ -83,16 +89,18 @@ const Profile = () => {
       {isPopupHidden ? (
         <></>
       ) : (
-        <Popup
-          inputType={inputType}
-          indexOfUser={indexOfUser}
-          handleOnClick={handleOnClick}
-          handleValueChange={handleValueChange}
-          handleSubmit={handleSubmit}
-          initialState={inputValue}
-        />
+        <div className={styles.popup}>
+          <Popup
+            inputType={inputType}
+            indexOfUser={indexOfUser}
+            handleOnClick={handlePopupClose}
+            handleValueChange={handleValueChange}
+            handleSubmit={handleSubmit}
+            initialState={inputValue}
+          />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
