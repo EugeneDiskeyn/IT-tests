@@ -19,9 +19,10 @@
     box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
     background-color: #FFFFFF;
 }
-.signingUp h1 {
+.signingUp h2 {
     margin-bottom: 49px;
     font-size: 32px;
+    color: #594F77;
 }
 
 .container Input {

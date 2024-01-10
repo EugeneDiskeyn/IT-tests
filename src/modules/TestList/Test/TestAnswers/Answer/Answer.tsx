@@ -18,12 +18,20 @@ const Answer = ({ id, question, userAnswer, answer, isAnswerRight }: props) => {
     color: isAnswerRight ? "#63925B" : "#AA5550",
   };
 
+  const severalAnswers = (answer: any) => {
+    let answerStr = "";
+    for (let oneAnswer of answer) {
+      answerStr += oneAnswer + "; ";
+    }
+    return answerStr;
+  };
+
   return (
     <div className={styles.answer}>
       <div className={styles.question}>
-        <h1>
+        <h2>
           {id + 1}. {question}
-        </h1>
+        </h2>
         <div style={styleObj}>
           {(() => {
             return isAnswerRight ? "Верно" : "Неверно";
@@ -33,33 +41,13 @@ const Answer = ({ id, question, userAnswer, answer, isAnswerRight }: props) => {
       <div className={styles.answers}>
         <p>
           <b>Ваш ответ: </b>
-          {(() => {
-            if (typeof userAnswer === "string") {
-              return userAnswer;
-            } else {
-              let userAnswerStr = "";
-              userAnswer.map((oneAnswer) => {
-                userAnswerStr += oneAnswer + "; ";
-              });
-              return userAnswerStr;
-            }
-          })()}
+          {typeof answer === "string" ? userAnswer : severalAnswers(userAnswer)}
         </p>
       </div>
       <div className={styles.rightAnswers}>
         <p>
           <b>Правильные ответы: </b>
-          {(() => {
-            if (typeof answer === "string") {
-              return answer;
-            } else {
-              let answerStr = "";
-              answer.map((oneAnswer) => {
-                answerStr += oneAnswer + "; ";
-              });
-              return answerStr;
-            }
-          })()}
+          {typeof answer === "string" ? answer : severalAnswers(answer)}
         </p>
       </div>
     </div>

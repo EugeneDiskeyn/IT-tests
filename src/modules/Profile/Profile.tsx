@@ -9,6 +9,7 @@ import { Popup } from "./Popup/Popup";
 import Fox from "../../images/icons/Fox.svg";
 import Logout from "../../images/icons/Logout.svg";
 import routes from "../../services/routes";
+import Edit from "../../images/icons/Edit.svg";
 
 const Profile = () => {
   const [inputType, setInputType] = useState("");
@@ -37,7 +38,7 @@ const Profile = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const f_users = users;
+    const f_users = [...users];
     f_users[indexOfUser][inputType] = inputValue;
     localStorage.setItem("user", JSON.stringify(f_users));
     handlePopupClose();
@@ -59,23 +60,35 @@ const Profile = () => {
             </Link>
           </div>
           <div className={styles.inputs}>
-            <Input
-              placeholder={"login"}
-              type={"text"}
-              isDisabled
-              isEditable
-              onClick={handleClickInput}
-              value={users[indexOfUser].login}
-              pattern={"[a-zA-Z0-9]{4,16}"}
-            />
-            <Input
-              placeholder={"password"}
-              type={"text"}
-              isDisabled
-              isEditable
-              onClick={handleClickInput}
-              value={users[indexOfUser].password}
-            />
+            <div className={styles.editable}>
+              <Input
+                placeholder={"login"}
+                type={"text"}
+                isDisabled
+                value={users[indexOfUser].login}
+                pattern={"[a-zA-Z0-9]{4,16}"}
+              />
+              <img
+                className={styles.img}
+                src={Edit}
+                alt={"Edit Icon"}
+                onClick={handleClickInput}
+              />
+            </div>
+            <div className={styles.editable}>
+              <Input
+                placeholder={"password"}
+                type={"text"}
+                isDisabled
+                value={users[indexOfUser].password}
+              />
+              <img
+                className={styles.img}
+                src={Edit}
+                alt={"Edit Icon"}
+                onClick={handleClickInput}
+              />
+            </div>
             <Input
               placeholder={"gmail"}
               type={"email"}

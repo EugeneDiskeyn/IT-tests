@@ -1,7 +1,7 @@
 const adder = (newUser: any) => {
   let usersStr = localStorage.getItem("user");
   if (typeof usersStr === "string") {
-    let users = JSON.parse(usersStr);
+    const users = JSON.parse(usersStr);
     for (let user of users) {
       if (newUser.gmail === user.gmail || newUser.login === user.login) {
         return;

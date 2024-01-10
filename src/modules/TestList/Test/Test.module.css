@@ -19,7 +19,8 @@
 .back a {
     max-height: 32px;
 }
-.back h1 {
+.back h2 {
     color: #594F77;
+    font-size: 2em;
     margin-left: 25px;
 }

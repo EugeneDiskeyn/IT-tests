@@ -39,7 +39,7 @@ const SignIn = () => {
         autoComplete={"on"}
         onSubmit={handleSubmit}
       >
-        <h1>АВТОРИЗАЦИЯ</h1>
+        <h2>АВТОРИЗАЦИЯ</h2>
         <Input
           placeholder={"Электронная почта"}
           type={"mail"}

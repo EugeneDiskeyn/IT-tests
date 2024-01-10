@@ -18,8 +18,10 @@
     box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
     background-color: #FFFFFF;
 }
-.feedback h1 {
+.feedback h2 {
     margin-bottom: 35px;
+    color: #594F77;
+    font-size: 2em;
 }
 
 .form_img Input {

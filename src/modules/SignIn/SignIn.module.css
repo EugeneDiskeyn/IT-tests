@@ -19,9 +19,10 @@
     box-shadow: 4px 4px 28px 0 rgba(89, 79, 119, 0.25);
     background-color: #FFFFFF;
 }
-.authorization h1 {
+.authorization h2 {
     font-size: 32px;
     margin-bottom: 49px;
+    color: #594F77;
 }
 .container Input {
     margin-bottom: 35px;

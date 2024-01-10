@@ -8,6 +8,17 @@ import adder from "../../utils/localStorage/adder";
 import routes from "../../services/routes";
 
 const SignUp = () => {
+  interface Action {
+    type: string;
+    value: string;
+  }
+  interface State {
+    gmail: string;
+    login: string;
+    password: string;
+    repeat: string;
+  }
+
   const navigate = useNavigate();
 
   const actionTypes = {
@@ -17,7 +28,7 @@ const SignUp = () => {
     SET_REPEAT: "SET_REPEAT",
   };
 
-  const reducer = (state: any, action: any) => {
+  const reducer = (state: State, action: Action) => {
     switch (action.type) {
       case actionTypes.SET_GMAIL: {
         return {
@@ -49,7 +60,12 @@ const SignUp = () => {
     }
   };
 
-  const initialState = { gmail: "", login: "", password: "", repeat: "" };
+  const initialState: State = {
+    gmail: "",
+    login: "",
+    password: "",
+    repeat: "",
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleInputChange = (
@@ -81,7 +97,7 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <form className={styles.signingUp} onSubmit={handleSubmit}>
-        <h1>РЕГИСТРАЦИЯ</h1>
+        <h2>РЕГИСТРАЦИЯ</h2>
         <Input
           placeholder={"Электронная почта"}
           type={"email"}

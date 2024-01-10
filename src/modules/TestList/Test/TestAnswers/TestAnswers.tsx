@@ -22,19 +22,18 @@ const TestAnswers = () => {
     return rightAnsNum;
   };
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    navigate(routes.catalog);
+  };
+
   return (
     <div className={styles.background}>
-      <form
-        className={styles.answersForm}
-        onSubmit={(event: React.FormEvent) => {
-          event.preventDefault();
-          navigate(routes.catalog);
-        }}
-      >
+      <form className={styles.answersForm} onSubmit={handleSubmit}>
         <div className={styles.formTop}>
-          <h1 className={styles.testName}>
+          <h2 className={styles.testName}>
             {params.names} {params.testId}
-          </h1>
+          </h2>
           <h2 className={styles.result}>
             {rightAnswersNum()}/{userAnswers.length}
           </h2>

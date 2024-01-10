@@ -43,6 +43,11 @@
     cursor: pointer;
 }
 
+.editable {
+    display: flex;
+    width: 100%;
+}
+
 .popup {
     display: flex;
 }

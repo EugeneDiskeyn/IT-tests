@@ -45,7 +45,7 @@ const Test = () => {
 
     const answersTab = getIsAnswerRight(rightAnswers, answers);
 
-    navigate(location.pathname + "/answers", {
+    navigate(`${location.pathname}/answers`, {
       state: { answers, answersTab, rightAnswers },
     });
   };
@@ -87,6 +87,7 @@ const Test = () => {
     answersHolder[index].answer = userAnswers;
     setAnswers(answersHolder);
   };
+
   return (
     <div className={styles.background}>
       <form className={styles.questionArea} onSubmit={handleSubmit}>
@@ -94,7 +95,7 @@ const Test = () => {
           <Link to={routes.catalog}>
             <img src={arrow} alt={arrow} />
           </Link>
-          <h1>{location.state.name}</h1>
+          <h2>{location.state.name}</h2>
         </div>
         {questions[testId].map((question: any, index: number) => {
           if (question.type === "write") {
@@ -152,6 +153,8 @@ const testChoice = (name?: string) => {
       return testTests.git.test;
     case "typeScript":
       return testTests.typeScript.test;
+    default:
+      return testTests.react.test;
   }
 };
 
@@ -169,11 +172,13 @@ const rightAnswerChoice = (params: any) => {
       return testTests.git.answers[params.testId - 1];
     case "typeScript":
       return testTests.typeScript.answers[params.testId - 1];
+    default:
+      return testTests.react.answers[params.testId - 1];
   }
 };
 
 const getIsAnswerRight = (rightAnswers: any, userAnswers: any) => {
-  let answersTab: any = [];
+  const answersTab: any = [];
   userAnswers.map((userAnswer: any, index: number) => {
     if (userAnswer.type !== "severalChoice") {
       if (rightAnswers[index].rightAnswer !== userAnswer.answer) {
@@ -182,19 +187,11 @@ const getIsAnswerRight = (rightAnswers: any, userAnswers: any) => {
         answersTab.push(true);
       }
     } else {
-      if (rightAnswers[index].rightAnswer.length !== userAnswer.answer.length) {
-        answersTab.push(false);
-      } else {
-        const len = rightAnswers[index].rightAnswer.length;
-        let flag = true;
-        for (let i = 0; i < len; i++) {
-          if (rightAnswers[index].rightAnswer[i] !== userAnswer.answer[i]) {
-            flag = false;
-            break;
-          }
-        }
-        answersTab.push(flag);
-      }
+      answersTab.push(
+        rightAnswers[index].rightAnswer.every(
+          (item: any, i: number) => item === userAnswer.answer[i]
+        )
+      );
     }
   });
   return answersTab;

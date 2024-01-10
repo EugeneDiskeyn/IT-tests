@@ -21,7 +21,7 @@ const FeedBack = () => {
   const handleSubmit = () => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].gmail === gmail && users[i].login === login) {
-        console.log("Feedback sent");
+        console.log(gmail, login);
       }
     }
   };
@@ -30,7 +30,7 @@ const FeedBack = () => {
       <NavBar />
       <div className={styles.form_img}>
         <form className={styles.feedback} onSubmit={handleSubmit}>
-          <h1>Мы на связи</h1>
+          <h2>Мы на связи</h2>
           <Input
             placeholder={"Логин"}
             type={"text"}
