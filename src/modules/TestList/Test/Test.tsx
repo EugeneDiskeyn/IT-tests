@@ -87,7 +87,7 @@ const Test = () => {
     answersHolder[index].answer = userAnswers;
     setAnswers(answersHolder);
   };
-
+  console.log(params);
   return (
     <div className={styles.background}>
       <form className={styles.questionArea} onSubmit={handleSubmit}>
@@ -181,11 +181,7 @@ const getIsAnswerRight = (rightAnswers: any, userAnswers: any) => {
   const answersTab: any = [];
   userAnswers.map((userAnswer: any, index: number) => {
     if (userAnswer.type !== "severalChoice") {
-      if (rightAnswers[index].rightAnswer !== userAnswer.answer) {
-        answersTab.push(false);
-      } else {
-        answersTab.push(true);
-      }
+      answersTab.push(rightAnswers[index].rightAnswer === userAnswer.answer);
     } else {
       answersTab.push(
         rightAnswers[index].rightAnswer.every(

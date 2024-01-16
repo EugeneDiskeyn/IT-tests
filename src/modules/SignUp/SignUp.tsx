@@ -7,18 +7,18 @@ import Button from "../../components/Button/Button";
 import adder from "../../utils/localStorage/adder";
 import routes from "../../services/routes";
 
-const SignUp = () => {
-  interface Action {
-    type: string;
-    value: string;
-  }
-  interface State {
-    gmail: string;
-    login: string;
-    password: string;
-    repeat: string;
-  }
+interface Action {
+  type: string;
+  value: string;
+}
+interface State {
+  gmail: string;
+  login: string;
+  password: string;
+  repeat: string;
+}
 
+const SignUp = () => {
   const navigate = useNavigate();
 
   const actionTypes = {

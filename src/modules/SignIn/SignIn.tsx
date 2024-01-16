@@ -21,6 +21,8 @@ const SignIn = () => {
     if (finder !== undefined) {
       sessionStorage.setItem("currentUser", finder.gmail);
       navigate(routes.catalog);
+    } else {
+      alert("Почта или пароль введены неправильно");
     }
   };
 

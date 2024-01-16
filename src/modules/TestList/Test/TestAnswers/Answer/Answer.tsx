@@ -32,11 +32,7 @@ const Answer = ({ id, question, userAnswer, answer, isAnswerRight }: props) => {
         <h2>
           {id + 1}. {question}
         </h2>
-        <div style={styleObj}>
-          {(() => {
-            return isAnswerRight ? "Верно" : "Неверно";
-          })()}
-        </div>
+        <div style={styleObj}>{isAnswerRight ? "Верно" : "Неверно"}</div>
       </div>
       <div className={styles.answers}>
         <p>

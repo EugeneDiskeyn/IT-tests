@@ -1,5 +1,5 @@
 const adder = (newUser: any) => {
-  let usersStr = localStorage.getItem("user");
+  const usersStr = localStorage.getItem("user");
   if (typeof usersStr === "string") {
     const users = JSON.parse(usersStr);
     for (let user of users) {
