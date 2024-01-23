@@ -10,6 +10,7 @@ const TestAnswers = () => {
   const params = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+
   const userAnswers = location.state.answers;
 
   const rightAnswersNum = () => {

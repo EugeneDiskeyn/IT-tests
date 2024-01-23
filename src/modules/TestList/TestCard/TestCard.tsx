@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 import styles from "./TestCard.module.css";
 import penguin from "../../../images/icons/Avatars.svg";
@@ -23,10 +23,13 @@ const TestCard = ({
 }: TestProps) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const params = useParams();
 
   const handleNavigate = () => {
     navigate(`${location.pathname}/${id + 1}`, { state: { name } });
   };
+
+  console.log(params);
 
   return (
     <div className={styles.testBox} onClick={handleNavigate}>

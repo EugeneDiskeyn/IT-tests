@@ -87,7 +87,6 @@ const Test = () => {
     answersHolder[index].answer = userAnswers;
     setAnswers(answersHolder);
   };
-  console.log(params);
   return (
     <div className={styles.background}>
       <form className={styles.questionArea} onSubmit={handleSubmit}>
@@ -95,7 +94,9 @@ const Test = () => {
           <Link to={routes.catalog}>
             <img src={arrow} alt={arrow} />
           </Link>
-          <h2>{location.state.name}</h2>
+          <h2>
+            {params.names} test {params.testId}
+          </h2>
         </div>
         {questions[testId].map((question: any, index: number) => {
           if (question.type === "write") {
